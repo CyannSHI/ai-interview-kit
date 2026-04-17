@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Noto Sans SC', sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7F6FB"/>
+      <stop offset="100%" stop-color="#EEECF5"/>
+    </linearGradient>
+    <linearGradient id="slot-a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="slot-b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F3FF"/>
+      <stop offset="100%" stop-color="#DDD6FE"/>
+    </linearGradient>
+    <linearGradient id="slot-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="filled-a" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E0E7FF"/>
+      <stop offset="100%" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <linearGradient id="filled-b" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EDE9FE"/>
+      <stop offset="100%" stop-color="#F5F3FF"/>
+    </linearGradient>
+    <linearGradient id="filled-c" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <filter id="s2" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f0d1a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="420" rx="16" fill="url(#bg2)"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="13" font-weight="600" fill="#4F46E5" letter-spacing="0.1em">SLOT ASSEMBLY PRINCIPLE</text>
+
+  <!-- ===== LEFT: Framework Template ===== -->
+  <g filter="url(#s2)">
+    <rect x="40" y="56" width="320" height="340" rx="14" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <text x="200" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1726">通用访谈框架（模板）</text>
+    <text x="200" y="104" text-anchor="middle" font-size="11" fill="#787496">framework/base.md</text>
+
+    <!-- Framework content -->
+    <rect x="60" y="120" width="280" height="24" rx="6" fill="#F7F6FB"/>
+    <text x="70" y="137" font-size="12" fill="#44405a">开场白 · 身份设定 · 暖场话术</text>
+
+    <!-- SLOT_A placeholder -->
+    <rect x="60" y="155" width="280" height="48" rx="8" fill="url(#slot-a)" stroke="#818CF8" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="200" y="176" text-anchor="middle" font-size="13" font-weight="600" fill="#3730A3">SLOT_A：访谈维度</text>
+    <text x="200" y="194" text-anchor="middle" font-size="10" fill="#6366F1">← 由方法论填充</text>
+
+    <rect x="60" y="214" width="280" height="24" rx="6" fill="#F7F6FB"/>
+    <text x="70" y="231" font-size="12" fill="#44405a">追问策略 · 节奏控制 · 回合上限</text>
+
+    <!-- SLOT_B placeholder -->
+    <rect x="60" y="249" width="280" height="48" rx="8" fill="url(#slot-b)" stroke="#A78BFA" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="200" y="270" text-anchor="middle" font-size="13" font-weight="600" fill="#5B21B6">SLOT_B：追问引导词</text>
+    <text x="200" y="288" text-anchor="middle" font-size="10" fill="#8B5CF6">← 由方法论填充</text>
+
+    <!-- SLOT_C placeholder -->
+    <rect x="60" y="308" width="280" height="48" rx="8" fill="url(#slot-c)" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="200" y="329" text-anchor="middle" font-size="13" font-weight="600" fill="#92400E">SLOT_C：关键信息采集点</text>
+    <text x="200" y="347" text-anchor="middle" font-size="10" fill="#D97706">← 由方法论填充</text>
+
+    <rect x="60" y="367" width="280" height="24" rx="6" fill="#F7F6FB"/>
+    <text x="70" y="384" font-size="12" fill="#44405a">结束确认 · 信息回顾 · 感谢</text>
+  </g>
+
+  <!-- ===== CENTER: Arrows ===== -->
+  <line x1="400" y1="179" x2="530" y2="120" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <polygon points="528,113 538,120 528,127" fill="#4F46E5" opacity="0.6"/>
+
+  <line x1="400" y1="273" x2="530" y2="230" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <polygon points="528,223 538,230 528,237" fill="#7C3AED" opacity="0.6"/>
+
+  <line x1="400" y1="332" x2="530" y2="340" stroke="#D97706" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <polygon points="528,333 538,340 528,347" fill="#D97706" opacity="0.6"/>
+
+  <!-- ===== RIGHT: Example - JTBD ===== -->
+  <g filter="url(#s2)">
+    <rect x="540" y="56" width="320" height="340" rx="14" fill="white" stroke="#10B981" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <rect x="540" y="56" width="320" height="44" rx="14" fill="#ECFDF5"/>
+    <rect x="540" y="86" width="320" height="14" fill="#ECFDF5"/>
+    <text x="700" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="#065F46">示例：JTBD 需求迁移</text>
+
+    <!-- SLOT_A filled -->
+    <rect x="560" y="110" width="280" height="56" rx="8" fill="url(#filled-a)" stroke="#C7D2FE" stroke-width="1"/>
+    <text x="570" y="130" font-size="11" font-weight="600" fill="#3730A3">SLOT_A 访谈维度</text>
+    <text x="570" y="148" font-size="11" fill="#4F46E5">推力 · 拉力 · 焦虑 · 习惯 · 去向</text>
+    <text x="570" y="162" font-size="10" fill="#6366F1">围绕这 5 个维度展开访谈</text>
+
+    <!-- SLOT_B filled -->
+    <rect x="560" y="176" width="280" height="76" rx="8" fill="url(#filled-b)" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="570" y="196" font-size="11" font-weight="600" fill="#5B21B6">SLOT_B 追问引导词</text>
+    <text x="570" y="214" font-size="11" fill="#6D28D9">推力 → "是什么让你开始考虑换？"</text>
+    <text x="570" y="232" font-size="11" fill="#6D28D9">拉力 → "新方案什么最吸引你？"</text>
+    <text x="570" y="248" font-size="10" fill="#8B5CF6">每个维度配备专属追问话术</text>
+
+    <!-- SLOT_C filled -->
+    <rect x="560" y="262" width="280" height="76" rx="8" fill="url(#filled-c)" stroke="#FCD34D" stroke-width="1"/>
+    <text x="570" y="282" font-size="11" font-weight="600" fill="#92400E">SLOT_C 关键信息采集点</text>
+    <text x="570" y="300" font-size="11" fill="#B45309">✓ 迁移触发事件（具体时间+场景）</text>
+    <text x="570" y="318" font-size="11" fill="#B45309">✓ 备选方案评估过程</text>
+    <text x="570" y="334" font-size="10" fill="#D97706">AI 必须采集到这些信息才算完成</text>
+
+    <!-- Note -->
+    <text x="700" y="370" text-anchor="middle" font-size="11" fill="#787496">其他方法论同理，只需填写 3 个 SLOT</text>
+    <text x="700" y="386" text-anchor="middle" font-size="11" fill="#787496">框架不变 → 零耦合 → 独立升级</text>
+  </g>
+</svg>

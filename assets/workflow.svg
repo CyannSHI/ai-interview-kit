@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Noto Sans SC', sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7F6FB"/>
+      <stop offset="100%" stop-color="#EEECF5"/>
+    </linearGradient>
+    <linearGradient id="step1-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="step2-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="step3-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F3FF"/>
+      <stop offset="100%" stop-color="#DDD6FE"/>
+    </linearGradient>
+    <linearGradient id="step4-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </linearGradient>
+    <linearGradient id="step5-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#A7F3D0"/>
+    </linearGradient>
+    <linearGradient id="step6-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FED7AA"/>
+    </linearGradient>
+    <filter id="s3" x="-4%" y="-6%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f0d1a" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="300" rx="16" fill="url(#bg3)"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#4F46E5" letter-spacing="0.1em">USER WORKFLOW</text>
+
+  <!-- ===== Step 1: Input ===== -->
+  <g filter="url(#s3)">
+    <rect x="20" y="55" width="120" height="120" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="20" y="55" width="120" height="32" rx="12" fill="url(#step1-bg)"/>
+    <rect x="20" y="75" width="120" height="12" fill="url(#step1-bg)"/>
+    <text x="80" y="77" text-anchor="middle" font-size="18">💬</text>
+    <text x="80" y="108" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1726">描述研究目标</text>
+    <text x="80" y="126" text-anchor="middle" font-size="10" fill="#787496">"我想了解用户</text>
+    <text x="80" y="140" text-anchor="middle" font-size="10" fill="#787496">为什么流失"</text>
+    <text x="80" y="164" text-anchor="middle" font-size="9" font-weight="500" fill="#92400E">用户输入</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <line x1="142" y1="115" x2="158" y2="115" stroke="#DDDBE8" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="156,110 164,115 156,120" fill="#DDDBE8"/>
+
+  <!-- ===== Step 2: AI Classification ===== -->
+  <g filter="url(#s3)">
+    <rect x="166" y="55" width="120" height="120" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="166" y="55" width="120" height="32" rx="12" fill="url(#step2-bg)"/>
+    <rect x="166" y="75" width="120" height="12" fill="url(#step2-bg)"/>
+    <text x="226" y="77" text-anchor="middle" font-size="18">🤖</text>
+    <text x="226" y="108" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1726">AI 智能分类</text>
+    <text x="226" y="126" text-anchor="middle" font-size="10" fill="#787496">识别问题类型</text>
+    <text x="226" y="140" text-anchor="middle" font-size="10" fill="#787496">推荐最佳方法论</text>
+    <text x="226" y="164" text-anchor="middle" font-size="9" font-weight="500" fill="#3730A3">AI 处理</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <line x1="288" y1="115" x2="304" y2="115" stroke="#DDDBE8" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="302,110 310,115 302,120" fill="#DDDBE8"/>
+
+  <!-- ===== Step 3: Collect Variables ===== -->
+  <g filter="url(#s3)">
+    <rect x="312" y="55" width="120" height="120" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="312" y="55" width="120" height="32" rx="12" fill="url(#step3-bg)"/>
+    <rect x="312" y="75" width="120" height="12" fill="url(#step3-bg)"/>
+    <text x="372" y="77" text-anchor="middle" font-size="18">📋</text>
+    <text x="372" y="108" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1726">收集项目变量</text>
+    <text x="372" y="126" text-anchor="middle" font-size="10" fill="#787496">产品、用户画像</text>
+    <text x="372" y="140" text-anchor="middle" font-size="10" fill="#787496">控制精度选择</text>
+    <text x="372" y="164" text-anchor="middle" font-size="9" font-weight="500" fill="#5B21B6">对话引导</text>
+  </g>
+
+  <!-- Arrow 3→4 -->
+  <line x1="434" y1="115" x2="450" y2="115" stroke="#DDDBE8" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="448,110 456,115 448,120" fill="#DDDBE8"/>
+
+  <!-- ===== Step 4: Assemble (highlight) ===== -->
+  <g filter="url(#s3)">
+    <rect x="458" y="55" width="120" height="120" rx="12" fill="url(#step4-bg)"/>
+    <text x="518" y="82" text-anchor="middle" font-size="22">⚡</text>
+    <text x="518" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="white">自动组装</text>
+    <text x="518" y="128" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">框架 + 方法论</text>
+    <text x="518" y="142" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">+ 变量 → Prompt</text>
+    <text x="518" y="164" text-anchor="middle" font-size="9" font-weight="500" fill="rgba(255,255,255,0.6)">核心步骤</text>
+  </g>
+
+  <!-- Arrow 4→5 -->
+  <line x1="580" y1="115" x2="596" y2="115" stroke="#DDDBE8" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="594,110 602,115 594,120" fill="#DDDBE8"/>
+
+  <!-- ===== Step 5: Execute ===== -->
+  <g filter="url(#s3)">
+    <rect x="604" y="55" width="120" height="120" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="604" y="55" width="120" height="32" rx="12" fill="url(#step5-bg)"/>
+    <rect x="604" y="75" width="120" height="12" fill="url(#step5-bg)"/>
+    <text x="664" y="77" text-anchor="middle" font-size="18">📞</text>
+    <text x="664" y="108" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1726">执行外呼</text>
+    <text x="664" y="126" text-anchor="middle" font-size="10" fill="#787496">Prompt 部署到</text>
+    <text x="664" y="140" text-anchor="middle" font-size="10" fill="#787496">外呼平台运行</text>
+    <text x="664" y="164" text-anchor="middle" font-size="9" font-weight="500" fill="#065F46">生产执行</text>
+  </g>
+
+  <!-- Arrow 5→6 -->
+  <line x1="726" y1="115" x2="742" y2="115" stroke="#DDDBE8" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="740,110 748,115 740,120" fill="#DDDBE8"/>
+
+  <!-- ===== Step 6: Evaluate ===== -->
+  <g filter="url(#s3)">
+    <rect x="750" y="55" width="120" height="120" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="750" y="55" width="120" height="32" rx="12" fill="url(#step6-bg)"/>
+    <rect x="750" y="75" width="120" height="12" fill="url(#step6-bg)"/>
+    <text x="810" y="77" text-anchor="middle" font-size="18">📊</text>
+    <text x="810" y="108" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1726">复盘评估</text>
+    <text x="810" y="126" text-anchor="middle" font-size="10" fill="#787496">AI 全量走查</text>
+    <text x="810" y="140" text-anchor="middle" font-size="10" fill="#787496">定位 Bad Case</text>
+    <text x="810" y="164" text-anchor="middle" font-size="9" font-weight="500" fill="#9A3412">质量复盘</text>
+  </g>
+
+  <!-- ===== Feedback Loop Arrow ===== -->
+  <path d="M 810 178 L 810 240 Q 810 260 790 260 L 100 260 Q 80 260 80 240 L 80 178" stroke="#4F46E5" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.4"/>
+  <polygon points="74,182 80,170 86,182" fill="#4F46E5" opacity="0.4"/>
+
+  <!-- Loop label -->
+  <rect x="380" y="248" width="140" height="24" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+  <text x="450" y="264" text-anchor="middle" font-size="11" font-weight="500" fill="#4F46E5">迭代优化 Prompt</text>
+
+  <!-- Step numbers -->
+  <text x="80" y="195" text-anchor="middle" font-size="10" font-weight="600" fill="#9b97b4">01</text>
+  <text x="226" y="195" text-anchor="middle" font-size="10" font-weight="600" fill="#9b97b4">02</text>
+  <text x="372" y="195" text-anchor="middle" font-size="10" font-weight="600" fill="#9b97b4">03</text>
+  <text x="518" y="195" text-anchor="middle" font-size="10" font-weight="600" fill="#9b97b4">04</text>
+  <text x="664" y="195" text-anchor="middle" font-size="10" font-weight="600" fill="#9b97b4">05</text>
+  <text x="810" y="195" text-anchor="middle" font-size="10" font-weight="600" fill="#9b97b4">06</text>
+
+  <!-- Skills labels -->
+  <rect x="158" y="210" width="100" height="20" rx="10" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="208" y="224" text-anchor="middle" font-size="9" font-weight="500" fill="#3730A3">generate-prompt</text>
+
+  <rect x="550" y="210" width="100" height="20" rx="10" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="600" y="224" text-anchor="middle" font-size="9" font-weight="500" fill="#3730A3">generate-input</text>
+
+  <rect x="770" y="210" width="70" height="20" rx="10" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+  <text x="805" y="224" text-anchor="middle" font-size="9" font-weight="500" fill="#9A3412">evaluate</text>
+</svg>

@@ -21,7 +21,7 @@
 
 <br><br>
 
-<img src="assets/demo.gif" alt="50 秒演示：输入研究问题 → AI 分类 → 推荐方法论 → 生成完整 Prompt" width="88%">
+<img src="assets/demo_ch.gif" alt="50 秒演示：输入研究问题 → AI 分类 → 推荐方法论 → 生成完整 Prompt" width="88%">
 
 <sub>50 秒演示 &ensp;·&ensp; 输入研究问题 → 自动分类 → 推荐方法论 → 生成完整 Prompt</sub>
 

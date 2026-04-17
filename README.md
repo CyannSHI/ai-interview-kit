@@ -2,30 +2,55 @@
 
 # AI Interview Kit
 
-**Engineer user-research methodologies into AI prompts,**
-**so every phone call reaches professional interview quality.**
+**Professional-grade user interviews at scale —<br>powered by prompt engineering, not bigger budgets.**
 
 <br>
 
-`Follow-up hit rate: 34% → 94%` &ensp; `50+ iteration rounds` &ensp; `2 500+ production calls`
+**34 → 94 %** follow-up hit rate &ensp;·&ensp; **50+** iteration rounds &ensp;·&ensp; **2 500+** production calls
 
 <br>
 
-<a href="#-quick-start"><img src="https://img.shields.io/badge/Quick_Start-4F46E5?style=flat-square" alt="Quick Start"></a>&ensp;
+<a href="#quick-start"><img src="https://img.shields.io/badge/Quick_Start-4F46E5?style=flat-square" alt="Quick Start"></a>&ensp;
 <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-10B981?style=flat-square" alt="MIT License"></a>&ensp;
-<a href="#-compatibility"><img src="https://img.shields.io/badge/Works_with_5+_AI_tools-F59E0B?style=flat-square" alt="Compatibility"></a>&ensp;
-<a href="#-methodology-library"><img src="https://img.shields.io/badge/6_Methodologies-8B5CF6?style=flat-square" alt="Methodologies"></a>
+<a href="#compatibility"><img src="https://img.shields.io/badge/5+_AI_Tools-F59E0B?style=flat-square" alt="Compatibility"></a>&ensp;
+<a href="#methodology-library"><img src="https://img.shields.io/badge/6_Methodologies-8B5CF6?style=flat-square" alt="Methodologies"></a>
 
 <br>
 
-**[中文版 README →](./README_zh.md)**
+**[中文版 →](./README_zh.md)**
 
 <br><br>
 
-<img src="assets/demo.gif" alt="See the full workflow in 50 seconds" width="88%">
+<img src="assets/demo.gif" alt="50-second demo: research question → AI classification → methodology recommendation → full prompt generation" width="88%">
 
-<sub>50-second demo: enter a research question → AI classifies it → recommends a methodology → generates a full prompt</sub>
+<sub>50 s demo &ensp;·&ensp; research question → auto-classify → pick methodology → generate full prompt</sub>
 
+</div>
+
+<br>
+
+---
+
+<br>
+
+<a id="quick-start"></a>
+
+## ⚡ Quick Start
+
+```bash
+git clone https://github.com/CyannSHI/ai-interview-kit.git
+cd ai-interview-kit
+# Open with any supported AI tool and say "generate prompt"
+```
+
+| Skill | Trigger | What It Does |
+|:--|:--|:--|
+| `generate-prompt` | "generate prompt" / "new project" | Guided info collection → methodology pick → auto-assembled prompt |
+| `generate-input` | "prepare input variables" | Natural language → structured input variables |
+| `evaluate` | "evaluate calls" | Batch review call transcripts; detect bad cases & output Excel report |
+
+<div align="center">
+  <img src="assets/workflow.svg" alt="End-to-end user workflow" width="88%">
 </div>
 
 <br>
@@ -42,24 +67,20 @@
 
 ### UX Researchers
 
-- Deep interviews are slow — 5–8 samples a week at best
-- Outsourced fieldwork comes back inconsistent; you end up re-interviewing
-- Budget caps mean cutting sample size, not raising quality
+Your ceiling: 5–8 deep interviews a week. Outsourcing just trades one problem for another. When the budget runs out, sample size gets cut — quality never goes up.
 
 </td>
 <td width="50%">
 
-### Product Managers & Founders
+### PMs & Founders
 
-- User interviews feel intimidating — what to ask, how to probe
-- ChatGPT gives surface-level answers that go nowhere
-- You invest time interviewing, only to realize you missed the key questions
+You know you should talk to users — but what do you ask, and how deep do you go? ChatGPT gives surface-level answers that dead-end after two turns. You finally invest the time, only to realize you missed every key question.
 
 </td>
 </tr>
 </table>
 
-> **Our approach:** encode professional research methodologies into AI prompts — non-experts run professional-grade interviews; experts scale effortlessly.
+> **The idea:** engineer research methodologies into AI prompts. Non-experts get professional interview quality. Experts get 10× scale.
 
 <br>
 
@@ -67,9 +88,9 @@
 
 <br>
 
-## Core Innovation — AI Control Precision
+## 🎯 Core Innovation — AI Control Precision
 
-Interviews are not free-form chats. Confirmatory research demands precision; exploratory research needs creative latitude. **We parameterized what seasoned researchers do by instinct.**
+Most AI interview prompts are either too rigid or too loose. Different goals need different AI latitude — and seasoned researchers dial this by instinct. **We parameterized that instinct.**
 
 <br>
 
@@ -86,19 +107,15 @@ AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━�
 
 <br>
 
-|  | Precise Control | Balanced Mode | Exploratory Mode |
+|  | Precise Control | Balanced | Exploratory |
 |:--|:--:|:--:|:--:|
 | **Use case** | Targeted validation | Clear direction, some flex | Open-ended discovery |
-| **Key-info markers** | Tagged per question | Tagged per question | None — AI decides |
-| **Probing limit** | 4 rounds / question | 6 rounds / question | AI discretion |
-| **Min coverage** | 80% of required Qs | 75% of required Qs | 60% of required Qs |
-| **Typical scenario** | NPS callback | JTBD migration | New-product exploration |
+| **Key-info markers** | Per question | Per question | None — AI decides |
+| **Probing limit** | 4 rounds / Q | 6 rounds / Q | AI discretion |
+| **Min coverage** | 80 % required Qs | 75 % | 60 % |
+| **Example** | NPS callback | JTBD migration | New-product exploration |
 
-<sub>
-
-**Why this matters** — In traditional research, interview quality depends heavily on the interviewer's tacit knowledge: when to drill down, when to skip, when to follow a thread. We distilled that experience into three parameter dimensions (info-point density, probing-round cap, minimum coverage), so you can precisely define the AI's behavioral boundaries before a project begins.
-
-</sub>
+<sub>We distilled interviewers' tacit knowledge — when to drill down, when to skip, when to follow a thread — into three tunable parameters: info-point density, probing-round cap, and minimum coverage rate.</sub>
 
 <br>
 
@@ -106,16 +123,16 @@ AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━�
 
 <br>
 
-## How It Works — Prompt Engineering Architecture
+## 🧩 How It Works — Prompt Engineering Architecture
 
 <div align="center">
-  <img src="assets/architecture.svg" alt="Prompt engineering architecture" width="88%">
+  <img src="assets/architecture.svg" alt="Prompt engineering architecture diagram" width="88%">
 </div>
 
 <br>
 
 <div align="center">
-  <strong>Universal framework</strong> (how to ask) + <strong>Pluggable methodology</strong> (what to ask) + <strong>Project variables</strong> (whom to ask) → auto-assembled into a full prompt
+  <strong>Universal framework</strong> (how to ask) &ensp;+&ensp; <strong>Pluggable methodology</strong> (what to ask) &ensp;+&ensp; <strong>Project variables</strong> (whom to ask)<br>→ auto-assembled into a production-ready prompt
 </div>
 
 <br>
@@ -123,12 +140,12 @@ AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━�
 ### The SLOT Mechanism
 
 <div align="center">
-  <img src="assets/slot-mechanism.svg" alt="SLOT plug-in assembly" width="88%">
+  <img src="assets/slot-mechanism.svg" alt="SLOT plug-in assembly mechanism" width="88%">
 </div>
 
 <br>
 
-> Add a new methodology by writing 3 SLOTs — no framework changes needed. Framework upgrades automatically benefit every methodology.
+> Add a new methodology by writing just 3 SLOTs — no framework changes needed. Framework upgrades automatically benefit every methodology.
 
 <br>
 
@@ -136,9 +153,44 @@ AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━�
 
 <br>
 
-## Validation — What 50+ Failed Experiments Taught Us
+<a id="methodology-library"></a>
 
-### Problems Discovered
+## 📚 Methodology Library
+
+| Methodology | Best For | Core Dimensions |
+|:--|:--|:--|
+| **JTBD Migration** | User decisions · churn · competitor switching | Push · Pull · Anxiety · Habit · Destination |
+| **Journey Mapping** | Experience flows · friction points · action chains | Stage · Touchpoint · Behavior · Emotion · Breakpoint |
+| **NPS / Satisfaction** | Satisfaction callback · service improvement | Positive driver · Negative driver · Expectation gap |
+| **Laddering** | Deep motivation · value discovery | Attribute · Functional benefit · Emotional benefit · Core value |
+| **User Lifecycle** | Conversion · retention · churn | Acquisition · Conversion · Usage · Retention · Churn |
+| **Brand Diagnostics** | Brand perception · competitive positioning | Awareness · Association · Preference · Comparison · Loyalty |
+
+<sub>Custom methodology? Copy <code>methodologies/_template.md</code>, fill in 3 SLOTs, save — done.</sub>
+
+<br>
+
+---
+
+<br>
+
+## 📊 Validation — Iterated Through 50+ Experiments
+
+```text
+v0.1  ███████░░░░░░░░░░░░░  34%   Flat question list — no probing
+v0.2  ████████████░░░░░░░░  61%   + Key-info markers
+v0.3  ██████████████████░░  89%   + Probing cap & 3-strike rule
+v0.4  ███████████████████░  94%   + Methodology SLOT mechanism
+```
+
+<br>
+
+<details>
+<summary>&ensp;<strong>Before / After examples</strong></summary>
+
+<br>
+
+#### Problems Discovered
 
 <table>
 <tr>
@@ -169,7 +221,7 @@ AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━�
 
 <br>
 
-### After Optimization
+#### After Optimization
 
 <table>
 <tr>
@@ -222,25 +274,12 @@ AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━�
 </tr>
 </table>
 
-<br>
-
-### Improvement Timeline
-
-| Version | Change | Hit Rate |
-|:--:|:--|:--:|
-| v0.1 | Flat question list — no probing at all | **34%** |
-| v0.2 | + Key-info markers — AI knows *what* to dig for | **61%** |
-| v0.3 | + Probing cap & 3-strike topic switch — pacing under control | **89%** |
-| v0.4 | + Methodology SLOT mechanism — methodology-driven depth | **94%** |
-
-<br>
+</details>
 
 <details>
-<summary>&ensp;<strong>Full test plan: 6 stress scenarios</strong></summary>
+<summary>&ensp;<strong>Stress-test plan: 6 extreme scenarios</strong></summary>
 
 <br>
-
-We designed 6 extreme scenarios to stress-test the prompt:
 
 | # | Scenario | What It Tests |
 |:-:|:--|:--|
@@ -260,16 +299,14 @@ We designed 6 extreme scenarios to stress-test the prompt:
 
 <br>
 
-Data from real outbound-call platforms:
-
-| Metric | Traditional (Industry Baseline) | Project A (Test) | Project B (Production) | Project C (Production) |
+| Metric | Industry Baseline | Project A (Test) | Project B (Prod) | Project C (Prod) |
 |:--|:--:|:--:|:--:|:--:|
 | Call volume | 50–100 / day | **1 267** | **202** | **1 031** |
-| Connect rate | 30–40% | 47% | **61%** | 51% |
-| Effective interview rate | 10–15% | 6% | **21%** | 7% |
-| Time cost | 1–2 people × 2–3 days | 2 lines × 4 h | 2 lines × 30 min | 2 lines × 3.5 h |
+| Connect rate | 30–40 % | 47 % | **61 %** | 51 % |
+| Effective interview rate | 10–15 % | 6 % | **21 %** | 7 % |
+| Time cost | 1–2 ppl × 2–3 days | 2 lines × 4 h | 2 lines × 30 min | 2 lines × 3.5 h |
 
-> Project B achieved a **21%** effective interview rate, exceeding the industry baseline of 10–15%.
+> Project B achieved **21 %** effective interview rate — above the industry baseline of 10–15 %.
 
 </details>
 
@@ -279,27 +316,9 @@ Data from real outbound-call platforms:
 
 <br>
 
-## ⚡ Quick Start
+## 🔄 Feedback Loop — Review → Iterate
 
-```bash
-git clone https://github.com/CyannSHI/ai-interview-kit.git
-cd ai-interview-kit
-# Open with any supported AI tool and say "generate prompt"
-```
-
-<br>
-
-| Skill | Trigger | What It Does |
-|:--|:--|:--|
-| `generate-prompt` | "generate prompt" / "new project" | Guided info collection → methodology recommendation → auto-assembled prompt |
-| `generate-input` | "prepare input variables" | Natural language → structured input variables |
-| `evaluate` | "evaluate calls" | Batch review of call transcripts; detects bad cases |
-
-<br>
-
-<div align="center">
-  <img src="assets/workflow.svg" alt="End-to-end user workflow" width="88%">
-</div>
+The campaign isn't the finish line. Feed call transcripts back to AI — say *"evaluate this campaign"* or *"find bad cases"* — and it returns an Excel report with per-call scoring, issue pinpointing, and concrete improvement suggestions that feed directly into your next prompt iteration.
 
 <br>
 
@@ -307,51 +326,11 @@ cd ai-interview-kit
 
 <br>
 
-## Feedback Loop — Review → Iterate
+<a id="compatibility"></a>
 
-The outbound campaign isn't the finish line. Feed call transcripts back to AI and it tells you **what to improve next time**.
+## 🔌 Compatibility
 
-```
-Say to AI:  "evaluate this campaign"  /  "review call quality"  /  "find bad cases"
-```
-
-| Finding | Action |
-|:--|:--|
-| Follow-up hit rate 60% — key-info markers unclear | Add detail to info-point descriptions; reduce vague wording |
-| Users keep asking "Are you a bot?" — opening feels unnatural | Adjust persona; add "user-researcher" framing |
-| Certain question types never get answered — phrasing issue | Rewrite prompts; add scenario-based lead-ins |
-| Users lose patience after 5 probes — pacing too tight | Lower probing cap or switch to Balanced mode |
-
-> **Output:** Excel report (per-call scoring + issue location + specific improvement suggestions) → feeds directly into the next prompt iteration.
-
-<br>
-
----
-
-<br>
-
-## Methodology Library
-
-| Methodology | Use Cases | Core Dimensions |
-|:--|:--|:--|
-| **JTBD Migration** | User decisions · churn reasons · competitor switching | Push · Pull · Anxiety · Habit · Destination |
-| **Journey Mapping** | Experience flows · friction points · action chains | Stage · Touchpoint · Behavior · Emotion · Breakpoint |
-| **NPS / Satisfaction** | Satisfaction callback · service improvement | Positive driver · Negative driver · Expectation gap |
-| **Laddering** | Deep motivation · value discovery | Attribute · Functional benefit · Emotional benefit · Core value |
-| **User Lifecycle** | Conversion · retention · churn | Acquisition · Conversion · Usage · Retention · Churn |
-| **Brand Diagnostics** | Brand perception · competitive positioning | Awareness · Association · Preference · Comparison · Loyalty |
-
-<sub>Want to add a custom methodology? Copy <code>methodologies/_template.md</code>, fill in 3 SLOTs, and save.</sub>
-
-<br>
-
----
-
-<br>
-
-## Compatibility
-
-All skill instructions are written in **plain natural language** — zero API dependencies, auto-compatible with major AI tools:
+All skills are written in **plain natural language** — zero API dependencies, auto-compatible with major AI coding tools:
 
 | AI Tool | Entry File |
 |:--|:--|
@@ -362,7 +341,7 @@ All skill instructions are written in **plain natural language** — zero API de
 | **Windsurf** | `.windsurfrules` |
 | **Others** | `INSTRUCTIONS.md` |
 
-<sub>Every entry file points to the <code>skills/</code> directory — skill logic lives in one place, zero duplication.</sub>
+<sub>Every entry file points to <code>skills/</code> — skill logic lives in one place, zero duplication.</sub>
 
 <br>
 
@@ -400,7 +379,7 @@ All skill instructions are written in **plain natural language** — zero API de
 
 ## Contributing
 
-Issues and PRs are welcome — especially new methodology modules, usage case studies, and improvements to the probing logic.
+Issues and PRs welcome — especially new methodology modules, real-world case studies, and improvements to the probing logic.
 
 <br>
 
@@ -412,9 +391,8 @@ Issues and PRs are welcome — especially new methodology modules, usage case st
 
 **Vision: Democratize Insight**
 
-Let bootstrapped startups and nonprofits — teams that can't afford<br>
-a research agency — hear their users at low cost,<br>
-so product design truly returns to *human-centered*.
+Let bootstrapped startups and nonprofits — teams that can't afford a research agency —<br>
+hear their users at low cost, so product design truly returns to *human-centered*.
 
 <br>
 

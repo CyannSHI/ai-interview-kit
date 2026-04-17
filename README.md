@@ -185,12 +185,7 @@ v0.4  ███████████████████░  94%   + Meth
 
 <br>
 
-<details>
-<summary>&ensp;<strong>Before / After examples</strong></summary>
-
-<br>
-
-#### Problems Discovered
+### Problems Discovered
 
 <table>
 <tr>
@@ -221,7 +216,7 @@ v0.4  ███████████████████░  94%   + Meth
 
 <br>
 
-#### After Optimization
+### After Optimization
 
 <table>
 <tr>
@@ -274,7 +269,7 @@ v0.4  ███████████████████░  94%   + Meth
 </tr>
 </table>
 
-</details>
+<br>
 
 <details>
 <summary>&ensp;<strong>Stress-test plan: 6 extreme scenarios</strong></summary>

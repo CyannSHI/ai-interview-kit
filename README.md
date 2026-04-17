@@ -21,7 +21,7 @@
 
 <br><br>
 
-<img src="assets/demo.gif" alt="50-second demo: research question → AI classification → methodology recommendation → full prompt generation" width="88%">
+<img src="assets/demo_en.gif" alt="50-second demo: research question → AI classification → methodology recommendation → full prompt generation" width="88%">
 
 <sub>50 s demo &ensp;·&ensp; research question → auto-classify → pick methodology → generate full prompt</sub>
 

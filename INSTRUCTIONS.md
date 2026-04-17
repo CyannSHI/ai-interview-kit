@@ -1,14 +1,14 @@
 # AI Interview Prompt Engineering Toolkit / AI外呼 Prompt 工程化工具包
 
-This project includes 3 AI skills for end-to-end AI phone interview support. It automatically detects the user's language and adapts all interactions and outputs accordingly.
+This project includes 3 AI skills for end-to-end AI phone interview support. Each skill prompts the user to choose their language (Chinese/English) at the start, then adapts all interactions and outputs accordingly.
 
-本项目包含 3 个 AI 技能，用于 AI 电话外呼访谈场景的全流程支持。系统会自动检测用户语言并适配所有交互和输出。
+本项目包含 3 个 AI 技能，用于 AI 电话外呼访谈场景的全流程支持。每个技能在启动时会让用户选择语言（中文/English），后续所有交互和输出自动适配。
 
 ## Language / 语言
 
-Detect the user's language from their first message and use it throughout the session:
-- **English** → respond in English, use `framework/base_en.md` and `methodologies/en/`
-- **中文** → 使用中文交互，使用 `framework/base.md` 和 `methodologies/`
+Each skill begins with a language selection prompt. Based on the user's choice:
+- **English** → English guidance, use `framework/base_en.md` and `methodologies/en/`
+- **中文** → 中文引导，使用 `framework/base.md` 和 `methodologies/`
 
 ## Available Skills / 可用技能
 

@@ -4,6 +4,7 @@
 *.png
 !assets/*.png
 !assets/*.gif
+assets/demo-original.gif
 ~$*
 prompt_*_*.txt
 输入变量_*.txt

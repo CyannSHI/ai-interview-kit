@@ -1,9 +1,18 @@
 ---
 name: generate-input
-description: 引导研究员生成AI外呼的结构化输入变量。通过分步引导收集调研信息，自动将自然语言转化为Agent可解析的标准化模板（含目标用户、前置确认、必问-深挖/确认、关键信息点、最低覆盖等）。当研究员需要准备新一轮外呼项目的输入参数、或不确定怎么写研究目标时使用。
+description: 引导研究员生成AI外呼的结构化输入变量。通过分步引导收集调研信息，自动将自然语言转化为Agent可解析的标准化模板（含目标用户、前置确认、必问-深挖/确认、关键信息点、最低覆盖等）。当研究员需要准备新一轮外呼项目的输入参数、或不确定怎么写研究目标时使用。Supports both Chinese and English — auto-detected from user's first message.
 ---
 
-# AI外呼输入变量生成助手
+# AI外呼输入变量生成助手 / AI Interview Input Generator
+
+## 语言检测 / Language Detection
+
+**在用户发送第一条消息时，检测其语言（中文 or English），整个会话中保持一致。**
+- 使用用户的语言进行对话和引导
+- 生成的变量标签名随语言切换：中文使用 `{&调研背景}` 等；English 使用 `{&research_background}` 等
+- 分类标签随语言切换：中文【必问-深挖】→ English [Required-Deep Dive]；中文【必问-确认】→ English [Required-Confirm]；中文【选问】→ English [Optional]；中文【前置确认】→ English [Pre-check]；中文【目标用户】→ English [Target Respondent]；中文【最低覆盖】→ English [Minimum Coverage]
+
+---
 
 ## 核心定位
 

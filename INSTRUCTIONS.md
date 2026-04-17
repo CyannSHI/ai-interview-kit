@@ -1,30 +1,41 @@
-# AI外呼 Prompt 工程化工具包
+# AI Interview Prompt Engineering Toolkit / AI外呼 Prompt 工程化工具包
 
-本项目包含 3 个 AI 技能，用于 AI 电话外呼访谈场景的全流程支持。
+This project includes 3 AI skills for end-to-end AI phone interview support. It automatically detects the user's language and adapts all interactions and outputs accordingly.
 
-## 可用技能
+本项目包含 3 个 AI 技能，用于 AI 电话外呼访谈场景的全流程支持。系统会自动检测用户语言并适配所有交互和输出。
 
-### 1. generate-prompt — 生成完整的AI外呼Prompt
-- **触发**：用户说"生成prompt"、"开始新项目"、"做一轮外呼"
-- **指令文件**：`skills/generate-prompt.md`
-- **功能**：引导收集项目信息 → 智能推荐方法论 → 自动组装可直接粘贴使用的Prompt
+## Language / 语言
 
-### 2. generate-input — 生成结构化输入变量
-- **触发**：用户说"准备输入变量"、"写研究目标"
-- **指令文件**：`skills/generate-input.md`
-- **功能**：分步引导将自然语言转化为Agent可解析的标准化模板
+Detect the user's language from their first message and use it throughout the session:
+- **English** → respond in English, use `framework/base_en.md` and `methodologies/en/`
+- **中文** → 使用中文交互，使用 `framework/base.md` 和 `methodologies/`
 
-### 3. evaluate — 评估通话质量
-- **触发**：用户说"评估通话"、"走查记录"、"复盘"
-- **指令文件**：`skills/evaluate.md`
-- **功能**：全量走查AI外呼通话记录，检测Bad Case并核查信息收集情况
+## Available Skills / 可用技能
 
-## 使用方式
+### 1. generate-prompt — Generate a complete interview prompt / 生成完整的AI外呼Prompt
+- **Trigger**: "generate prompt" / "new project" / "生成prompt" / "开始新项目"
+- **Instruction file**: `skills/generate-prompt.md`
+- **Function**: Guided info collection → methodology recommendation → auto-assembled prompt
+
+### 2. generate-input — Generate structured input variables / 生成结构化输入变量
+- **Trigger**: "prepare input variables" / "write research goals" / "准备输入变量" / "写研究目标"
+- **Instruction file**: `skills/generate-input.md`
+- **Function**: Step-by-step guidance to convert natural language into standardized agent-parsable templates
+
+### 3. evaluate — Evaluate call quality / 评估通话质量
+- **Trigger**: "evaluate calls" / "review transcripts" / "评估通话" / "走查记录"
+- **Instruction file**: `skills/evaluate.md`
+- **Function**: Batch review of AI call transcripts, Bad Case detection, and information collection audit
+
+## Usage / 使用方式
+
+When the user triggers any skill above, you must first read the corresponding instruction file (`skills/*.md`) in full, then strictly follow its steps.
 
 当用户触发上述任一技能时，你必须先读取对应的指令文件（`skills/*.md`）的完整内容，然后严格按照其中的步骤执行。
 
-## 开场引导
+## Welcome / 开场引导
 
-当用户首次开启对话且未明确指令时，用一句话介绍本工具包的能力，并询问用户想做什么：
+When the user opens a conversation without a clear instruction, briefly introduce the toolkit and ask what they'd like to do — in their language:
 
-> 这是 AI外呼 Prompt 工程化工具包，我可以帮你：**生成Prompt**、**准备输入变量**、或**评估通话质量**。你想做哪个？
+- **English**: "This is the AI Interview Prompt Engineering Toolkit. I can help you: **Generate a Prompt**, **Prepare Input Variables**, or **Evaluate Call Quality**. What would you like to do?"
+- **中文**: "这是 AI外呼 Prompt 工程化工具包，我可以帮你：**生成Prompt**、**准备输入变量**、或**评估通话质量**。你想做哪个？"

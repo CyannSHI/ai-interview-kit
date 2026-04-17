@@ -1,14 +1,24 @@
 ---
 name: evaluate
-description: 全量走查AI外呼通话记录，检测Bad Case并核查信息收集情况。读取xbot导出的Excel，逐通评估后生成结果Excel文件。当用户需要评估外呼对话质量、走查通话记录、复盘项目、分析Agent表现时使用。Supports both Chinese and English — auto-detected from user's first message.
+description: 全量走查AI外呼通话记录，检测Bad Case并核查信息收集情况。读取xbot导出的Excel，逐通评估后生成结果Excel文件。当用户需要评估外呼对话质量、走查通话记录、复盘项目、分析Agent表现时使用。Supports both Chinese and English — user selects language at the start.
 ---
 
 # AI外呼对话质量评估 / AI Interview Quality Evaluation
 
-## 语言检测 / Language Detection
+## 语言选择 / Language Selection
 
-**在用户发送第一条消息时，检测其语言（中文 or English），整个会话中保持一致。**
-- 使用用户的语言进行对话、输出摘要和生成Excel内容
+**语言在流程开始时由用户明确选择，不通过触发消息猜测。**
+
+流程开始时，先输出：
+
+> 👋 Welcome! Please choose your language:
+> 1. **中文** — 中文评估报告
+> 2. **English** — English evaluation report
+>
+> (Type 1 or 2 / 输入 1 或 2)
+
+选择后，整个会话保持该语言。
+- 使用用户选择的语言进行对话、输出摘要和生成Excel内容
 - Bad Case 编码（B1-B10）保持统一，类别名随语言切换
 
 ---

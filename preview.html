@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== DESIGN TOKENS (Impeccable: 4pt base, OKLCH-inspired palette, tinted neutrals) ===== */
+    :root {
+      /* Spacing scale: 4pt base */
+      --space-2xs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      /* Color: tinted neutrals toward brand hue (indigo-blue) */
+      --brand-primary: #4F46E5;
+      --brand-primary-light: #818CF8;
+      --brand-primary-dark: #3730A3;
+      --brand-accent: #F59E0B;
+      --brand-accent-light: #FCD34D;
+
+      /* Tinted neutrals (Impeccable: never pure gray) */
+      --neutral-950: #0f0d1a;
+      --neutral-900: #1a1726;
+      --neutral-800: #2d2a3a;
+      --neutral-700: #44405a;
+      --neutral-600: #5c5878;
+      --neutral-500: #787496;
+      --neutral-400: #9b97b4;
+      --neutral-300: #c2bfd6;
+      --neutral-200: #dddbe8;
+      --neutral-100: #eeecf5;
+      --neutral-50: #f7f6fb;
+
+      /* Semantic colors */
+      --success: #10B981;
+      --error: #EF4444;
+      --warning: #F59E0B;
+      --info: #3B82F6;
+
+      /* Surface */
+      --surface-primary: #ffffff;
+      --surface-secondary: var(--neutral-50);
+      --surface-elevated: #ffffff;
+
+      /* Typography scale: 1.333 perfect fourth */
+      --text-xs: 0.75rem;    /* 12px */
+      --text-sm: 0.875rem;   /* 14px */
+      --text-base: 1rem;     /* 16px */
+      --text-lg: 1.125rem;   /* 18px */
+      --text-xl: 1.333rem;   /* ~21px */
+      --text-2xl: 1.777rem;  /* ~28px */
+      --text-3xl: 2.369rem;  /* ~38px */
+      --text-4xl: 3.157rem;  /* ~50px */
+
+      /* Line heights */
+      --leading-tight: 1.2;
+      --leading-snug: 1.35;
+      --leading-normal: 1.6;
+      --leading-relaxed: 1.75;
+
+      /* Shadows (Impeccable: subtle, consistent elevation) */
+      --shadow-sm: 0 1px 2px rgba(15,13,26,0.05);
+      --shadow-md: 0 4px 12px rgba(15,13,26,0.08);
+      --shadow-lg: 0 8px 24px rgba(15,13,26,0.1);
+      --shadow-xl: 0 16px 48px rgba(15,13,26,0.12);
+
+      /* Radii */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      /* Transitions (Impeccable: exponential easing) */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px; /* Impeccable: minimum 16px body */
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', 'Space Grotesk', system-ui, sans-serif;
+      color: var(--neutral-800);
+      background: var(--surface-secondary);
+      line-height: var(--leading-normal);
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-lg);
+    }
+
+    section {
+      margin-bottom: var(--space-3xl);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79,70,229,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      color: var(--neutral-950);
+      line-height: var(--leading-tight);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-xl);
+      color: var(--neutral-600);
+      font-weight: 400;
+      max-width: 65ch;
+      margin: 0 auto var(--space-lg);
+      line-height: var(--leading-snug);
+    }
+
+    .hero-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+      color: white;
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: 100px;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .hero-stat strong {
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: 100px;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+      border: 1px solid var(--neutral-200);
+      color: var(--neutral-700);
+      background: var(--surface-primary);
+    }
+
+    .badge:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      text-decoration: none;
+    }
+
+    .badge-icon { margin-right: var(--space-xs); }
+
+    /* ===== DEMO GIF ===== */
+    .demo-showcase {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: var(--space-xs);
+    }
+
+    .demo-showcase img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+
+    .demo-caption {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--neutral-500);
+      margin-top: var(--space-sm);
+      padding-bottom: var(--space-xs);
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .section-title {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--neutral-900);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-desc {
+      font-size: var(--text-lg);
+      color: var(--neutral-600);
+      max-width: 65ch;
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-xl);
+    }
+
+    /* ===== PERSONA CARDS ===== */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .persona-card {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+      transition: box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
+    }
+
+    .persona-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .persona-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: var(--space-md);
+    }
+
+    .persona-card:first-child .persona-icon {
+      background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+    }
+
+    .persona-card:last-child .persona-icon {
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    }
+
+    .persona-card h3 {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .persona-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .persona-card li {
+      position: relative;
+      padding-left: var(--space-lg);
+      margin-bottom: var(--space-sm);
+      font-size: var(--text-base);
+      color: var(--neutral-700);
+      line-height: var(--leading-snug);
+    }
+
+    .persona-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--neutral-300);
+    }
+
+    .insight-box {
+      background: linear-gradient(135deg, #EEF2FF, #F5F3FF);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border-left: 3px solid var(--brand-primary);
+      margin-top: var(--space-lg);
+    }
+
+    .insight-box p {
+      font-size: var(--text-base);
+      color: var(--neutral-800);
+      line-height: var(--leading-normal);
+    }
+
+    .insight-box strong {
+      color: var(--brand-primary-dark);
+    }
+
+    /* ===== ARCHITECTURE ===== */
+    .arch-img-wrapper {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+      text-align: center;
+    }
+
+    .arch-img-wrapper img {
+      max-width: 100%;
+      border-radius: var(--radius-sm);
+    }
+
+    .arch-oneliner {
+      text-align: center;
+      font-size: var(--text-lg);
+      color: var(--neutral-700);
+      margin-top: var(--space-lg);
+      font-weight: 400;
+    }
+
+    .arch-oneliner strong { color: var(--neutral-900); }
+
+    /* ===== EXPERIMENT SECTION ===== */
+    .experiment-problems {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .problem-card {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .problem-card .card-header {
+      background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+      padding: var(--space-md) var(--space-lg);
+      font-weight: 600;
+      color: #991B1B;
+      font-size: var(--text-sm);
+    }
+
+    .problem-card .card-body {
+      padding: var(--space-md);
+    }
+
+    .problem-card img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .problem-card .quote {
+      font-size: var(--text-sm);
+      color: var(--neutral-600);
+      font-style: italic;
+      padding-left: var(--space-md);
+      border-left: 2px solid var(--neutral-200);
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 640px) {
+      .solution-grid { grid-template-columns: 1fr; }
+    }
+
+    .solution-card {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .solution-card .card-header {
+      background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+      padding: var(--space-md) var(--space-lg);
+      font-weight: 600;
+      color: #065F46;
+      font-size: var(--text-sm);
+    }
+
+    .solution-card .card-body {
+      padding: var(--space-md);
+    }
+
+    .solution-card img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .solution-card .quote {
+      font-size: var(--text-sm);
+      color: var(--neutral-600);
+      font-style: italic;
+      padding-left: var(--space-md);
+      border-left: 2px solid var(--success);
+    }
+
+    /* ===== PROGRESS TIMELINE ===== */
+    .progress-timeline {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-2xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .timeline-header .start, .timeline-header .end {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+
+    .timeline-header .start { color: var(--neutral-500); }
+    .timeline-header .end { color: var(--brand-primary); }
+
+    .timeline-bar {
+      height: 4px;
+      background: var(--neutral-100);
+      border-radius: 2px;
+      margin: -12px 0 var(--space-xl);
+      position: relative;
+    }
+
+    .timeline-bar::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--neutral-300), var(--brand-primary));
+      border-radius: 2px;
+    }
+
+    .timeline-steps {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: var(--space-md);
+      align-items: center;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .timeline-step:last-child { border-bottom: none; }
+
+    .timeline-step .version {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--neutral-500);
+    }
+
+    .timeline-step .description {
+      font-size: var(--text-base);
+      color: var(--neutral-700);
+    }
+
+    .timeline-step .metric {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--brand-primary);
+      background: var(--neutral-50);
+      padding: var(--space-2xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+    }
+
+    .timeline-step:last-child .metric {
+      background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+      color: var(--brand-primary-dark);
+    }
+
+    /* ===== EXPANDABLE DETAILS ===== */
+    details {
+      background: var(--surface-primary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--neutral-100);
+      margin-bottom: var(--space-md);
+      transition: box-shadow var(--duration-normal) var(--ease-out);
+    }
+
+    details:hover { box-shadow: var(--shadow-sm); }
+
+    details[open] { box-shadow: var(--shadow-sm); }
+
+    summary {
+      padding: var(--space-md) var(--space-lg);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: var(--text-base);
+      color: var(--neutral-800);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::before {
+      content: '›';
+      font-size: var(--text-xl);
+      color: var(--neutral-400);
+      transition: transform var(--duration-fast) var(--ease-out);
+      display: inline-block;
+      width: 16px;
+    }
+
+    details[open] summary::before { transform: rotate(90deg); }
+
+    details .detail-content {
+      padding: 0 var(--space-lg) var(--space-lg);
+    }
+
+    /* ===== CONTROL PRECISION ===== */
+    .control-section {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .control-why {
+      font-size: var(--text-base);
+      color: var(--neutral-700);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-xl);
+      max-width: 65ch;
+    }
+
+    .control-spectrum {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-bottom: var(--space-xl);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .spectrum-item {
+      flex: 1;
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      position: relative;
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .spectrum-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--neutral-200);
+    }
+
+    .spectrum-precise { background: linear-gradient(180deg, #EEF2FF, #ffffff); }
+    .spectrum-balance { background: linear-gradient(180deg, #F5F3FF, #ffffff); }
+    .spectrum-explore { background: linear-gradient(180deg, #FEF3C7, #ffffff); }
+
+    .spectrum-icon {
+      font-size: 32px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .spectrum-name {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-2xs);
+    }
+
+    .spectrum-desc {
+      font-size: var(--text-sm);
+      color: var(--neutral-500);
+    }
+
+    .spectrum-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--text-xs);
+      color: var(--neutral-400);
+      margin-bottom: var(--space-sm);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .control-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .control-detail-card {
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border: 1px solid var(--neutral-200);
+    }
+
+    .control-detail-card h4 {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .control-detail-card .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--neutral-100);
+      font-size: var(--text-sm);
+    }
+
+    .control-detail-card .detail-row:last-child { border-bottom: none; }
+
+    .control-detail-card .detail-label { color: var(--neutral-600); }
+
+    .control-detail-card .detail-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      color: var(--neutral-800);
+    }
+
+    .control-research-note {
+      background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border-left: 3px solid var(--brand-accent);
+    }
+
+    .control-research-note h4 {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: #92400E;
+      margin-bottom: var(--space-xs);
+    }
+
+    .control-research-note p {
+      font-size: var(--text-sm);
+      color: #78350F;
+      line-height: var(--leading-normal);
+    }
+
+    /* ===== SLOT MECHANISM ===== */
+    .slot-img-wrapper {
+      background: var(--surface-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+      text-align: center;
+    }
+
+    .slot-img-wrapper img {
+      max-width: 100%;
+      border-radius: var(--radius-sm);
+    }
+
+    .slot-note {
+      text-align: center;
+      font-size: var(--text-base);
+      color: var(--neutral-600);
+      margin-top: var(--space-md);
+      font-style: italic;
+    }
+
+    /* ===== QUICK START ===== */
+    .quickstart-code {
+      background: var(--neutral-900);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quickstart-code::before {
+      content: 'Terminal';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-xs) var(--space-md);
+      background: rgba(255,255,255,0.05);
+      font-size: var(--text-xs);
+      color: var(--neutral-500);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .quickstart-code code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      color: #E2E8F0;
+      line-height: var(--leading-relaxed);
+      display: block;
+      padding-top: var(--space-lg);
+    }
+
+    .quickstart-code .comment { color: var(--neutral-600); }
+    .quickstart-code .command { color: #A5B4FC; }
+
+    /* ===== SKILLS TABLE ===== */
+    .skills-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--neutral-200);
+      font-size: var(--text-sm);
+    }
+
+    .skills-table thead {
+      background: var(--neutral-50);
+    }
+
+    .skills-table th {
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      font-weight: 600;
+      color: var(--neutral-700);
+      border-bottom: 1px solid var(--neutral-200);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skills-table td {
+      padding: var(--space-sm) var(--space-md);
+      color: var(--neutral-700);
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .skills-table tr:last-child td { border-bottom: none; }
+
+    .skills-table .skill-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      color: var(--brand-primary);
+    }
+
+    .skills-table .trigger {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      background: var(--neutral-50);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ===== ITERATE SECTION ===== */
+    .iterate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .iterate-card {
+      background: var(--surface-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .iterate-card .problem {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--error);
+      margin-bottom: var(--space-xs);
+    }
+
+    .iterate-card .cause {
+      font-size: var(--text-sm);
+      color: var(--neutral-600);
+      margin-bottom: var(--space-sm);
+    }
+
+    .iterate-card .action {
+      font-size: var(--text-sm);
+      color: var(--success);
+      font-weight: 500;
+      padding-top: var(--space-xs);
+      border-top: 1px solid var(--neutral-100);
+    }
+
+    /* ===== METHODOLOGY GRID ===== */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .method-card {
+      background: var(--surface-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border: 1px solid var(--neutral-100);
+      transition: box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
+    }
+
+    .method-card:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+
+    .method-card h4 {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-xs);
+    }
+
+    .method-card .use-case {
+      font-size: var(--text-sm);
+      color: var(--neutral-500);
+      margin-bottom: var(--space-sm);
+    }
+
+    .method-card .dimensions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2xs);
+    }
+
+    .method-card .dim-tag {
+      font-size: var(--text-xs);
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: var(--neutral-50);
+      color: var(--neutral-600);
+      border: 1px solid var(--neutral-100);
+    }
+
+    /* ===== COMPATIBILITY ===== */
+    .compat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .compat-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      background: var(--surface-primary);
+      border: 1px solid var(--neutral-100);
+      font-size: var(--text-sm);
+    }
+
+    .compat-item .tool-name {
+      font-weight: 600;
+      color: var(--neutral-800);
+    }
+
+    .compat-item .tool-file {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      color: var(--neutral-500);
+    }
+
+    /* ===== PROJECT STRUCTURE ===== */
+    .file-tree {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      color: var(--neutral-700);
+      line-height: var(--leading-relaxed);
+      background: var(--neutral-900);
+      color: #CBD5E1;
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+    }
+
+    .file-tree .dir { color: #93C5FD; }
+    .file-tree .comment { color: var(--neutral-600); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-lg);
+      margin-top: var(--space-3xl);
+      border-top: 1px solid var(--neutral-100);
+    }
+
+    .footer-vision {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer p {
+      font-size: var(--text-base);
+      color: var(--neutral-600);
+      max-width: 50ch;
+      margin: 0 auto var(--space-lg);
+      line-height: var(--leading-normal);
+    }
+
+    .star-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-xl);
+      border-radius: 100px;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--text-base);
+      transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+    }
+
+    .star-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      text-decoration: none;
+    }
+
+    /* ===== DATA TABLE inside details ===== */
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--neutral-200);
+      font-size: var(--text-sm);
+      margin: var(--space-md) 0;
+    }
+
+    .data-table thead { background: var(--neutral-50); }
+
+    .data-table th {
+      padding: var(--space-xs) var(--space-sm);
+      text-align: center;
+      font-weight: 600;
+      color: var(--neutral-700);
+      border-bottom: 1px solid var(--neutral-200);
+      font-size: var(--text-xs);
+    }
+
+    .data-table td {
+      padding: var(--space-xs) var(--space-sm);
+      text-align: center;
+      color: var(--neutral-700);
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table strong { color: var(--brand-primary-dark); }
+
+    /* ===== SEPARATOR ===== */
+    .separator {
+      height: 1px;
+      background: var(--neutral-100);
+      margin: var(--space-2xl) 0;
+      border: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero-title { font-size: var(--text-3xl); }
+      .control-spectrum { flex-direction: column; }
+      .spectrum-item:not(:last-child)::after {
+        right: 20%;
+        bottom: 0;
+        top: auto;
+        width: 60%;
+        height: 1px;
+      }
+      .control-detail-grid { grid-template-columns: 1fr; }
+      .page-wrapper { padding: var(--space-lg) var(--space-md); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1 class="hero-title">AI Interview Kit</h1>
+    <p class="hero-subtitle">将用研方法论工程化为 AI Prompt，让每一通电话都有专业访谈的质量</p>
+
+    <div class="hero-stat">
+      追问到位率 <strong>34% → 94%</strong>，经 50+ 轮迭代验证
+    </div>
+
+    <div class="badges">
+      <a href="#快速开始" class="badge"><span class="badge-icon">⚡</span> 快速开始</a>
+      <a href="#" class="badge"><span class="badge-icon">📄</span> MIT License</a>
+      <a href="#兼容性" class="badge"><span class="badge-icon">🔌</span> 兼容 5+ AI 工具</a>
+      <a href="#方法论库" class="badge"><span class="badge-icon">🧠</span> 6 种方法论</a>
+    </div>
+
+    <div class="demo-showcase">
+      <img src="assets/demo.gif" alt="60 秒看懂全流程">
+    </div>
+    <p class="demo-caption">▲ 50 秒演示：输入研究问题 → AI 分类 → 推荐方法论 → 生成完整 Prompt</p>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 为谁而做 ===== -->
+  <section>
+    <div class="section-label">Who it's for</div>
+    <h2 class="section-title">为谁而做</h2>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon">🔬</div>
+        <h3>用研从业者</h3>
+        <ul>
+          <li>深度访谈效率太低，一周只能做 5-8 个样本</li>
+          <li>外包给执行公司，质量参差不齐，回来还得自己补访</li>
+          <li>想规模化但预算有限，最后只能砍样本量</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🚀</div>
+        <h3>产品经理 / 创业者</h3>
+        <ul>
+          <li>用户访谈门槛太高，不知道问什么、怎么问</li>
+          <li>用 ChatGPT 问出来的都是表面答案，聊不下去</li>
+          <li>花了时间访谈，整理完发现没问到重点</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>我们的思路</strong>：把专业用研的方法论工程化成 AI Prompt——让非专业人士也能做专业级访谈，让专业人士能规模化执行。</p>
+    </div>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== AI 控制精度 (MOVED UP) ===== -->
+  <section id="control">
+    <div class="section-label">Core Innovation</div>
+    <h2 class="section-title">核心创新：AI 控制精度</h2>
+
+    <div class="control-section">
+      <p class="control-why">
+        访谈不是让 AI 自由聊天。不同研究目标需要不同的 AI 自由度——验证性研究要求精确执行，探索性研究需要 AI 灵活发挥。这是用研老手凭经验做的事，我们把它参数化了。
+      </p>
+
+      <div class="spectrum-label">
+        <span>← AI 自由度 低</span>
+        <span>AI 自由度 高 →</span>
+      </div>
+
+      <div class="control-spectrum">
+        <div class="spectrum-item spectrum-precise">
+          <div class="spectrum-icon">🎯</div>
+          <div class="spectrum-name">精细控制</div>
+          <div class="spectrum-desc">目标明确的验证性研究</div>
+        </div>
+        <div class="spectrum-item spectrum-balance">
+          <div class="spectrum-icon">⚖️</div>
+          <div class="spectrum-name">平衡模式</div>
+          <div class="spectrum-desc">大多数用研场景的默认选择</div>
+        </div>
+        <div class="spectrum-item spectrum-explore">
+          <div class="spectrum-icon">🔍</div>
+          <div class="spectrum-name">粗放模式</div>
+          <div class="spectrum-desc">探索性调研，发现未知</div>
+        </div>
+      </div>
+
+      <div class="control-detail-grid">
+        <div class="control-detail-card" style="background:linear-gradient(180deg, #F5F7FF, #fff);">
+          <h4>🎯 精细控制</h4>
+          <div class="detail-row">
+            <span class="detail-label">关键信息点</span>
+            <span class="detail-value">每题标注 ✅</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">追问上限</span>
+            <span class="detail-value">4 回合/题</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">最低覆盖</span>
+            <span class="detail-value">必问 × 80%</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">典型场景</span>
+            <span class="detail-value" style="font-family:inherit; font-size:var(--text-xs);">NPS 回访</span>
+          </div>
+        </div>
+        <div class="control-detail-card" style="background:linear-gradient(180deg, #F8F5FF, #fff);">
+          <h4>⚖️ 平衡模式</h4>
+          <div class="detail-row">
+            <span class="detail-label">关键信息点</span>
+            <span class="detail-value">每题标注 ✅</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">追问上限</span>
+            <span class="detail-value">6 回合/题</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">最低覆盖</span>
+            <span class="detail-value">必问 × 75%</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">典型场景</span>
+            <span class="detail-value" style="font-family:inherit; font-size:var(--text-xs);">JTBD 迁移</span>
+          </div>
+        </div>
+        <div class="control-detail-card" style="background:linear-gradient(180deg, #FFFCF0, #fff);">
+          <h4>🔍 粗放模式</h4>
+          <div class="detail-row">
+            <span class="detail-label">关键信息点</span>
+            <span class="detail-value">不标注</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">追问上限</span>
+            <span class="detail-value">AI 自主</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">最低覆盖</span>
+            <span class="detail-value">必问 × 60%</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">典型场景</span>
+            <span class="detail-value" style="font-family:inherit; font-size:var(--text-xs);">新品探索</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-research-note">
+        <h4>为什么这很重要？</h4>
+        <p>传统用研中，访谈质量高度依赖访谈员的经验——何时深挖、何时跳过、何时接住话题展开。我们将这些隐性经验提炼为三个参数维度（信息点标注密度、追问回合上限、最低覆盖率），让你在项目启动前就能精确设定 AI 的行为边界。精细控制确保你不遗漏任何关键验证点；粗放模式则给了 AI 足够空间去发现你没想到的洞察。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== How It Works: 架构 + SLOT ===== -->
+  <section>
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Prompt 工程化架构</h2>
+
+    <div class="arch-img-wrapper">
+      <img src="assets/architecture.svg" alt="Prompt 工程化架构">
+    </div>
+    <p class="arch-oneliner"><strong>通用框架</strong>（怎么问）+ <strong>可插拔方法论</strong>（问什么）+ <strong>项目变量</strong>（问谁）→ 自动组装为完整 Prompt</p>
+
+    <br>
+
+    <h3 style="font-size:var(--text-lg); font-weight:600; color:var(--neutral-800); margin-bottom:var(--space-md);">SLOT 插槽机制</h3>
+
+    <div class="slot-img-wrapper">
+      <img src="assets/slot-mechanism.svg" alt="SLOT 插槽组装原理">
+    </div>
+    <p class="slot-note">新增方法论只需写 3 个 SLOT，不用改框架；框架升级自动惠及所有方法论。</p>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 实验验证 ===== -->
+  <section>
+    <div class="section-label">Validation</div>
+    <h2 class="section-title">从 50+ 次失败实验中，我们学到了什么</h2>
+
+    <h3 style="font-size:var(--text-lg); font-weight:600; color:var(--neutral-800); margin-bottom:var(--space-md);">发现的问题</h3>
+
+    <div class="experiment-problems">
+      <div class="problem-card">
+        <div class="card-header">❌ 低智闲聊：问了废话，用户翻白眼</div>
+        <div class="card-body">
+          <img src="assets/before-bad-question.png" alt="低智闲聊示例">
+          <p class="quote">用户："不是火车票抢不抢都一样的...你问的是啥呀？"</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="card-header">❌ 节奏失调：一口气问太多，用户抓不住</div>
+        <div class="card-body">
+          <img src="assets/before-bad-rhythm.png" alt="节奏失调示例">
+          <p class="quote">AI 一段话问了 3 个问题，用户只回应了最后一个</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:var(--text-lg); font-weight:600; color:var(--neutral-800); margin-bottom:var(--space-md);">解决后的效果</h3>
+
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="card-header">✅ 精准归纳：实时总结全程信息，零遗漏</div>
+        <div class="card-body">
+          <img src="assets/after-good-summary.png" alt="精准归纳示例">
+          <p class="quote">AI 一口气回收散落全程的关键信息——订酒店渠道、决策因素、会员感知、期望权益——用户直接回复"对对对"</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="card-header">✅ 逐层下钻：从模糊表述追到具体场景</div>
+        <div class="card-body">
+          <img src="assets/after-good-deepdrill.png" alt="逐层下钻示例">
+          <p class="quote">用户只说了句模糊抱怨，AI 三步追到具体城市→具体酒店→具体事件</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="card-header">✅ 自然拓展：像真人一样顺着语境延伸</div>
+        <div class="card-body">
+          <img src="assets/after-good-expand.png" alt="自然拓展示例">
+          <p class="quote">AI 从"做什么工作"自然过渡到"每通电话多长时间""几轮能问全信息"，节奏接近真人访谈员</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="card-header">✅ 精准下钻：层层深入抓住重点</div>
+        <div class="card-body">
+          <img src="assets/after-good-drill.png" alt="精准下钻示例">
+          <p class="quote">AI 精准追问"两个渠道"的选择原因，层层深入到价格差异</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:var(--text-lg); font-weight:600; color:var(--neutral-800); margin-bottom:var(--space-md);">关键改进路径</h3>
+
+    <div class="progress-timeline">
+      <div class="timeline-header">
+        <span class="start">v0.1</span>
+        <span class="end">v0.4</span>
+      </div>
+      <div class="timeline-bar"></div>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <span class="version">v0.1</span>
+          <span class="description">基础问题清单——问完就过，不追问</span>
+          <span class="metric">34%</span>
+        </div>
+        <div class="timeline-step">
+          <span class="version">v0.2</span>
+          <span class="description">+关键信息点标注——AI 知道要挖什么了</span>
+          <span class="metric">61%</span>
+        </div>
+        <div class="timeline-step">
+          <span class="version">v0.3</span>
+          <span class="description">+追问上限 + 三问必换题——节奏可控，不僵局</span>
+          <span class="metric">89%</span>
+        </div>
+        <div class="timeline-step">
+          <span class="version">v0.4</span>
+          <span class="description">+方法论 SLOT 机制——方法论驱动深挖</span>
+          <span class="metric">94%</span>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <details>
+      <summary>完整测试方案：6 大压力场景</summary>
+      <div class="detail-content">
+        <p style="margin-bottom:var(--space-md); color:var(--neutral-600);">我们设计了 6 个极端场景来压力测试 Prompt：</p>
+        <table class="data-table">
+          <thead><tr><th>#</th><th>测试场景</th><th>验证目标</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><strong>唤醒与破壁</strong></td><td>用户说"不记得"时，AI 能否温柔唤醒记忆？</td></tr>
+            <tr><td>2</td><td><strong>深度下钻与拒绝诱导</strong></td><td>AI 能否纯开放提问，不给选项、不诱导？</td></tr>
+            <tr><td>3</td><td><strong>事实矛盾与逻辑敏锐度</strong></td><td>用户前后矛盾时，AI 能否发现并追问？</td></tr>
+            <tr><td>4</td><td><strong>高压效率与极端情绪</strong></td><td>用户愤怒/抱怨时，AI 能否安抚并拉回？</td></tr>
+            <tr><td>5</td><td><strong>信息降噪与关键提取</strong></td><td>用户说了一堆，AI 能否抓住关键信息？</td></tr>
+            <tr><td>6</td><td><strong>用户反问与身份稳定性</strong></td><td>用户质疑"你是机器人吧"，AI 怎么应对？</td></tr>
+          </tbody>
+        </table>
+        <p style="color:var(--neutral-600); font-size:var(--text-sm);"><strong>评估维度</strong>：聊天节奏 · 问题挖掘深度 · 关键信息遗漏 · 异常挂断率 · 提示词鲁棒性</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>生产环境验证数据</summary>
+      <div class="detail-content">
+        <p style="margin-bottom:var(--space-md); color:var(--neutral-600);">以下数据来自 Prompt 在实际外呼平台的生产运行：</p>
+        <table class="data-table">
+          <thead><tr><th>核心指标</th><th>传统人工（行业基准）</th><th>A 项目（测试）</th><th>B 项目（正式）</th><th>C 项目（正式）</th></tr></thead>
+          <tbody>
+            <tr><td>单次覆盖量</td><td>50-100 通/天</td><td><strong>1267 通</strong></td><td><strong>202 通</strong></td><td><strong>1031 通</strong></td></tr>
+            <tr><td>接通率</td><td>30-40%</td><td>47%</td><td><strong>61%</strong></td><td>51%</td></tr>
+            <tr><td>有效访谈率</td><td>10-15%</td><td>6%</td><td><strong>21%</strong></td><td>7%</td></tr>
+            <tr><td>时间效率</td><td>1-2人 × 2-3天</td><td>2号码 × 4h</td><td>2号码 × 30min</td><td>2号码 × 3.5h</td></tr>
+          </tbody>
+        </table>
+        <p style="color:var(--neutral-600); font-size:var(--text-sm);">B 项目有效访谈率达到 21%，超过行业基准 10-15%。</p>
+      </div>
+    </details>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 快速开始 ===== -->
+  <section id="快速开始">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">快速开始</h2>
+
+    <div class="quickstart-code">
+      <code>
+<span class="command">git clone</span> https://github.com/CyannSHI/ai-interview-kit.git
+<span class="command">cd</span> ai-interview-kit
+<span class="comment"># 用任意 AI 工具打开，说"生成 prompt"即可</span>
+      </code>
+    </div>
+
+    <table class="skills-table">
+      <thead>
+        <tr><th>技能</th><th>触发方式</th><th>功能</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name">generate-prompt</td>
+          <td><span class="trigger">"生成prompt"</span> <span class="trigger">"开始新项目"</span></td>
+          <td>引导收集信息 → 推荐方法论 → 自动组装 Prompt</td>
+        </tr>
+        <tr>
+          <td class="skill-name">generate-input</td>
+          <td><span class="trigger">"准备输入变量"</span></td>
+          <td>自然语言 → 结构化输入变量</td>
+        </tr>
+        <tr>
+          <td class="skill-name">evaluate</td>
+          <td><span class="trigger">"评估通话"</span></td>
+          <td>全量走查通话记录，检测 Bad Case</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div class="arch-img-wrapper">
+      <img src="assets/workflow.svg" alt="用户操作全流程">
+    </div>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 闭环：复盘 → 迭代 ===== -->
+  <section>
+    <div class="section-label">Feedback Loop</div>
+    <h2 class="section-title">闭环：复盘 → 迭代</h2>
+    <p class="section-desc">外呼结束不是终点。把通话记录丢给 AI，它会告诉你下次怎么做得更好。</p>
+
+    <div class="quickstart-code">
+      <code>
+<span class="comment"># 对 AI 说：</span>
+<span class="command">"评估这次外呼效果"</span>
+<span class="command">"复盘通话质量"</span>
+<span class="command">"检查 Bad Case"</span>
+      </code>
+    </div>
+
+    <div class="iterate-grid">
+      <div class="iterate-card">
+        <div class="problem">追问到位率 60%</div>
+        <div class="cause">→ 关键信息点标注不清晰</div>
+        <div class="action">✦ 增加信息点描述，减少模糊表述</div>
+      </div>
+      <div class="iterate-card">
+        <div class="problem">用户频繁反问 AI 身份</div>
+        <div class="cause">→ 开场白不够自然</div>
+        <div class="action">✦ 调整身份设定，增加"用户研究员"背书</div>
+      </div>
+      <div class="iterate-card">
+        <div class="problem">某类问题总是收集不到</div>
+        <div class="cause">→ 提问方式有问题</div>
+        <div class="action">✦ 修改提问话术，增加场景引导</div>
+      </div>
+      <div class="iterate-card">
+        <div class="problem">追问 5 轮用户不耐烦</div>
+        <div class="cause">→ 节奏太紧</div>
+        <div class="action">✦ 降低追问上限，或切换平衡模式</div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top:var(--space-xl);">
+      <p><strong>输出</strong>：Excel 报告（每通评分 + 问题定位 + 具体改进建议）→ 直接用于优化下一轮 Prompt</p>
+    </div>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 方法论库 ===== -->
+  <section id="方法论库">
+    <div class="section-label">Methodology Library</div>
+    <h2 class="section-title">方法论库</h2>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <h4>JTBD 需求迁移</h4>
+        <p class="use-case">用户决策 · 流失原因 · 竞品替换</p>
+        <div class="dimensions">
+          <span class="dim-tag">推力</span><span class="dim-tag">拉力</span><span class="dim-tag">焦虑</span><span class="dim-tag">习惯</span><span class="dim-tag">去向</span>
+        </div>
+      </div>
+      <div class="method-card">
+        <h4>用户旅程归因</h4>
+        <p class="use-case">体验流程 · 流程断点 · 操作链路</p>
+        <div class="dimensions">
+          <span class="dim-tag">阶段</span><span class="dim-tag">触点</span><span class="dim-tag">行为</span><span class="dim-tag">情绪</span><span class="dim-tag">断点</span>
+        </div>
+      </div>
+      <div class="method-card">
+        <h4>NPS / 满意度</h4>
+        <p class="use-case">满意度回访 · 服务改善</p>
+        <div class="dimensions">
+          <span class="dim-tag">正向驱动</span><span class="dim-tag">负向驱动</span><span class="dim-tag">期望落差</span>
+        </div>
+      </div>
+      <div class="method-card">
+        <h4>心智培育</h4>
+        <p class="use-case">深层动机 · 价值观挖掘</p>
+        <div class="dimensions">
+          <span class="dim-tag">属性</span><span class="dim-tag">功能利益</span><span class="dim-tag">情感利益</span><span class="dim-tag">核心价值观</span>
+        </div>
+      </div>
+      <div class="method-card">
+        <h4>用户生命周期</h4>
+        <p class="use-case">转化 · 留存 · 流失</p>
+        <div class="dimensions">
+          <span class="dim-tag">获取</span><span class="dim-tag">转化</span><span class="dim-tag">使用</span><span class="dim-tag">留存</span><span class="dim-tag">流失</span>
+        </div>
+      </div>
+      <div class="method-card">
+        <h4>品牌诊断</h4>
+        <p class="use-case">品牌认知 · 竞品定位</p>
+        <div class="dimensions">
+          <span class="dim-tag">认知</span><span class="dim-tag">联想</span><span class="dim-tag">偏好</span><span class="dim-tag">对比</span><span class="dim-tag">忠诚</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; color:var(--neutral-500); font-size:var(--text-sm); margin-top:var(--space-lg);">
+      想添加自定义方法论？复制 <code style="background:var(--neutral-100); padding:2px 6px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:var(--text-xs);">methodologies/_template.md</code>，填写 3 个 SLOT，保存即可。
+    </p>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 兼容性 ===== -->
+  <section id="兼容性">
+    <div class="section-label">Compatibility</div>
+    <h2 class="section-title">兼容性</h2>
+    <p class="section-desc">技能指令使用纯自然语言编写，零 API 依赖，自动适配主流 AI 工具。</p>
+
+    <div class="compat-grid">
+      <div class="compat-item">
+        <div>
+          <div class="tool-name">Qoder</div>
+          <div class="tool-file">AGENTS.md → .qoder/skills/</div>
+        </div>
+      </div>
+      <div class="compat-item">
+        <div>
+          <div class="tool-name">Claude Code</div>
+          <div class="tool-file">CLAUDE.md</div>
+        </div>
+      </div>
+      <div class="compat-item">
+        <div>
+          <div class="tool-name">Cursor</div>
+          <div class="tool-file">.cursor/rules/</div>
+        </div>
+      </div>
+      <div class="compat-item">
+        <div>
+          <div class="tool-name">GitHub Copilot</div>
+          <div class="tool-file">.github/copilot-instructions.md</div>
+        </div>
+      </div>
+      <div class="compat-item">
+        <div>
+          <div class="tool-name">Windsurf</div>
+          <div class="tool-file">.windsurfrules</div>
+        </div>
+      </div>
+      <div class="compat-item">
+        <div>
+          <div class="tool-name">其他</div>
+          <div class="tool-file">INSTRUCTIONS.md</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; color:var(--neutral-500); font-size:var(--text-sm); margin-top:var(--space-lg);">所有入口文件最终指向 <code style="background:var(--neutral-100); padding:2px 6px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:var(--text-xs);">skills/</code> 目录——技能逻辑只有一份，零重复。</p>
+  </section>
+
+  <hr class="separator">
+
+  <!-- ===== 项目结构 ===== -->
+  <section>
+    <details>
+      <summary>项目结构</summary>
+      <div class="detail-content">
+        <div class="file-tree">
+<span class="dir">.</span>
+├── <span class="dir">skills/</span>                     <span class="comment"># 技能指令（唯一真实来源）</span>
+│   ├── generate-prompt.md      <span class="comment">#   生成 Prompt</span>
+│   ├── generate-input.md       <span class="comment">#   生成输入变量</span>
+│   └── evaluate.md             <span class="comment">#   通话质量评估</span>
+├── <span class="dir">framework/</span>
+│   └── base.md                 <span class="comment"># 通用访谈框架（含 SLOT 插槽）</span>
+├── <span class="dir">methodologies/</span>              <span class="comment"># 方法论库（可插拔）</span>
+│   ├── jtbd.md                 <span class="comment">#   JTBD 需求迁移</span>
+│   ├── journey.md              <span class="comment">#   用户旅程归因</span>
+│   ├── nps.md                  <span class="comment">#   NPS/满意度</span>
+│   ├── laddering.md            <span class="comment">#   心智培育</span>
+│   ├── lifecycle.md            <span class="comment">#   用户生命周期</span>
+│   └── brand.md                <span class="comment">#   品牌诊断</span>
+├── <span class="dir">examples/</span>                   <span class="comment"># 示例文件</span>
+└── <span class="dir">assets/</span>                     <span class="comment"># 图片资源</span>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-vision">愿景：洞察平权</div>
+    <p>让没有预算请专业用研公司的初创团队、公益组织，也能低成本地"听见用户"，让产品设计真正回归"以人为本"。</p>
+    <a href="#" class="star-btn">☆ Star 支持一下</a>
+    <p style="margin-top:var(--space-xl); font-size:var(--text-sm); color:var(--neutral-400);">MIT License</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

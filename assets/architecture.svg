@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Noto Sans SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7F6FB"/>
+      <stop offset="100%" stop-color="#EEECF5"/>
+    </linearGradient>
+    <linearGradient id="primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </linearGradient>
+    <linearGradient id="framework-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#E0E7FF"/>
+    </linearGradient>
+    <linearGradient id="method-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F3FF"/>
+      <stop offset="100%" stop-color="#EDE9FE"/>
+    </linearGradient>
+    <linearGradient id="var-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="output-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#D1FAE5"/>
+    </linearGradient>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f0d1a" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow-lg" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f0d1a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" rx="16" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="13" font-weight="600" fill="#4F46E5" letter-spacing="0.1em">PROMPT ENGINEERING ARCHITECTURE</text>
+
+  <!-- ===== Input: Framework ===== -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="60" width="200" height="140" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="30" y="60" width="200" height="40" rx="12" fill="url(#framework-bg)"/>
+    <rect x="30" y="88" width="200" height="12" fill="url(#framework-bg)"/>
+    <text x="130" y="86" text-anchor="middle" font-size="14" font-weight="600" fill="#3730A3">通用访谈框架</text>
+    <text x="130" y="106" text-anchor="middle" font-size="11" fill="#787496">HOW TO ASK</text>
+
+    <text x="48" y="132" font-size="12" fill="#44405a">· 开场白与身份设定</text>
+    <text x="48" y="152" font-size="12" fill="#44405a">· 追问策略与节奏控制</text>
+    <text x="48" y="172" font-size="12" fill="#44405a">· 结束与信息确认</text>
+    <text x="48" y="192" font-size="12" fill="#9b97b4">  含 SLOT_A / B / C 插槽</text>
+  </g>
+
+  <!-- ===== Input: Methodology ===== -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="220" width="200" height="140" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="30" y="220" width="200" height="40" rx="12" fill="url(#method-bg)"/>
+    <rect x="30" y="248" width="200" height="12" fill="url(#method-bg)"/>
+    <text x="130" y="246" text-anchor="middle" font-size="14" font-weight="600" fill="#5B21B6">方法论模块</text>
+    <text x="130" y="266" text-anchor="middle" font-size="11" fill="#787496">WHAT TO ASK</text>
+
+    <text x="48" y="292" font-size="12" fill="#44405a">· JTBD 需求迁移</text>
+    <text x="48" y="312" font-size="12" fill="#44405a">· 用户旅程归因</text>
+    <text x="48" y="332" font-size="12" fill="#44405a">· NPS / 满意度 …</text>
+    <text x="48" y="352" font-size="12" fill="#9b97b4">  提供 SLOT_A / B / C 内容</text>
+  </g>
+
+  <!-- ===== Plus sign 1 ===== -->
+  <circle cx="265" cy="160" r="16" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+  <text x="265" y="165" text-anchor="middle" font-size="18" font-weight="300" fill="#4F46E5">+</text>
+
+  <!-- ===== Plus sign 2 ===== -->
+  <circle cx="265" cy="290" r="16" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+  <text x="265" y="295" text-anchor="middle" font-size="18" font-weight="300" fill="#4F46E5">+</text>
+
+  <!-- ===== Input: Variables ===== -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="190" width="200" height="130" rx="12" fill="white" stroke="#DDDBE8" stroke-width="1"/>
+    <rect x="300" y="190" width="200" height="40" rx="12" fill="url(#var-bg)"/>
+    <rect x="300" y="218" width="200" height="12" fill="url(#var-bg)"/>
+    <text x="400" y="216" text-anchor="middle" font-size="14" font-weight="600" fill="#92400E">项目变量</text>
+    <text x="400" y="236" text-anchor="middle" font-size="11" fill="#787496">WHO TO ASK</text>
+
+    <text x="318" y="264" font-size="12" fill="#44405a">· 产品名称 / 行业背景</text>
+    <text x="318" y="284" font-size="12" fill="#44405a">· 目标用户画像</text>
+    <text x="318" y="304" font-size="12" fill="#44405a">· 控制精度（精细/平衡/粗放）</text>
+  </g>
+
+  <!-- ===== Arrow: merge ===== -->
+  <path d="M 500 255 L 560 200" stroke="#DDDBE8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 230 160 L 248 160" stroke="#DDDBE8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 230 290 L 248 290" stroke="#DDDBE8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 282 160 Q 340 160 340 190" stroke="#DDDBE8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 282 290 Q 340 290 340 320" stroke="#DDDBE8" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Assembly arrow -->
+  <line x1="540" y1="200" x2="600" y2="200" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="598,193 612,200 598,207" fill="#4F46E5"/>
+
+  <!-- Assembly label -->
+  <rect x="536" y="160" width="80" height="24" rx="12" fill="url(#primary)"/>
+  <text x="576" y="176" text-anchor="middle" font-size="11" font-weight="500" fill="white">自动组装</text>
+
+  <!-- ===== Output: Complete Prompt ===== -->
+  <g filter="url(#shadow-lg)">
+    <rect x="620" y="70" width="250" height="260" rx="14" fill="white" stroke="#10B981" stroke-width="1.5"/>
+    <rect x="620" y="70" width="250" height="44" rx="14" fill="url(#output-bg)"/>
+    <rect x="620" y="100" width="250" height="14" fill="url(#output-bg)"/>
+    <text x="745" y="98" text-anchor="middle" font-size="15" font-weight="700" fill="#065F46">完整 Prompt</text>
+
+    <!-- Content preview -->
+    <rect x="640" y="128" width="210" height="1" fill="#EEECF5"/>
+    <text x="650" y="150" font-size="11" font-weight="600" fill="#3730A3">▎系统身份 &amp; 角色设定</text>
+    <rect x="650" y="158" width="140" height="6" rx="3" fill="#EEF2FF"/>
+    <rect x="650" y="168" width="120" height="6" rx="3" fill="#EEF2FF"/>
+
+    <text x="650" y="195" font-size="11" font-weight="600" fill="#5B21B6">▎方法论维度 (from SLOT)</text>
+    <rect x="650" y="203" width="160" height="6" rx="3" fill="#F5F3FF"/>
+    <rect x="650" y="213" width="130" height="6" rx="3" fill="#F5F3FF"/>
+
+    <text x="650" y="240" font-size="11" font-weight="600" fill="#92400E">▎项目具体信息</text>
+    <rect x="650" y="248" width="150" height="6" rx="3" fill="#FEF3C7"/>
+    <rect x="650" y="258" width="110" height="6" rx="3" fill="#FEF3C7"/>
+
+    <text x="650" y="285" font-size="11" font-weight="600" fill="#44405a">▎追问策略 &amp; 控制参数</text>
+    <rect x="650" y="293" width="170" height="6" rx="3" fill="#EEECF5"/>
+    <rect x="650" y="303" width="100" height="6" rx="3" fill="#EEECF5"/>
+
+    <rect x="640" y="318" width="210" height="1" fill="#EEECF5"/>
+  </g>
+</svg>

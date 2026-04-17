@@ -2,24 +2,29 @@
 
 # AI Interview Kit
 
-**将用研方法论工程化为 AI Prompt，让每一通电话都有专业访谈的质量**
+**Engineer user-research methodologies into AI prompts,**
+**so every phone call reaches professional interview quality.**
 
 <br>
 
-`追问到位率 34% → 94%` &ensp; `经 50+ 轮迭代验证` &ensp; `生产环境 2500+ 通外呼`
+`Follow-up hit rate: 34% → 94%` &ensp; `50+ iteration rounds` &ensp; `2 500+ production calls`
 
 <br>
 
-<a href="#-快速开始"><img src="https://img.shields.io/badge/⚡_快速开始-4F46E5?style=flat-square" alt="Quick Start"></a>&ensp;
+<a href="#-quick-start"><img src="https://img.shields.io/badge/Quick_Start-4F46E5?style=flat-square" alt="Quick Start"></a>&ensp;
 <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-10B981?style=flat-square" alt="MIT License"></a>&ensp;
-<a href="#-兼容性"><img src="https://img.shields.io/badge/兼容_5+_AI工具-F59E0B?style=flat-square" alt="Compatibility"></a>&ensp;
-<a href="#-方法论库"><img src="https://img.shields.io/badge/6_种方法论-8B5CF6?style=flat-square" alt="Methodologies"></a>
+<a href="#-compatibility"><img src="https://img.shields.io/badge/Works_with_5+_AI_tools-F59E0B?style=flat-square" alt="Compatibility"></a>&ensp;
+<a href="#-methodology-library"><img src="https://img.shields.io/badge/6_Methodologies-8B5CF6?style=flat-square" alt="Methodologies"></a>
+
+<br>
+
+**[中文版 README →](./README_zh.md)**
 
 <br><br>
 
-<img src="assets/demo.gif" alt="50 秒看懂全流程" width="88%">
+<img src="assets/demo.gif" alt="See the full workflow in 50 seconds" width="88%">
 
-<sub>▲ 50 秒演示：输入研究问题 → AI 分类 → 推荐方法论 → 生成完整 Prompt</sub>
+<sub>50-second demo: enter a research question → AI classifies it → recommends a methodology → generates a full prompt</sub>
 
 </div>
 
@@ -29,32 +34,32 @@
 
 <br>
 
-## 🎯 为谁而做
+## Who It's For
 
 <table>
 <tr>
 <td width="50%">
 
-### 用研从业者
+### UX Researchers
 
-- 深度访谈效率太低，一周只能做 5-8 个样本
-- 外包给执行公司，质量参差不齐，回来还得自己补访
-- 想规模化但预算有限，最后只能砍样本量
+- Deep interviews are slow — 5–8 samples a week at best
+- Outsourced fieldwork comes back inconsistent; you end up re-interviewing
+- Budget caps mean cutting sample size, not raising quality
 
 </td>
 <td width="50%">
 
-### 产品经理 / 创业者
+### Product Managers & Founders
 
-- 用户访谈门槛太高，不知道问什么、怎么问
-- 用 ChatGPT 问出来的都是表面答案，聊不下去
-- 花了时间访谈，整理完发现没问到重点
+- User interviews feel intimidating — what to ask, how to probe
+- ChatGPT gives surface-level answers that go nowhere
+- You invest time interviewing, only to realize you missed the key questions
 
 </td>
 </tr>
 </table>
 
-> **我们的思路**：把专业用研的方法论工程化成 AI Prompt——让非专业人士也能做专业级访谈，让专业人士能规模化执行。
+> **Our approach:** encode professional research methodologies into AI prompts — non-experts run professional-grade interviews; experts scale effortlessly.
 
 <br>
 
@@ -62,64 +67,38 @@
 
 <br>
 
-## 🧪 核心创新：AI 控制精度
+## Core Innovation — AI Control Precision
 
-访谈不是让 AI 自由聊天。不同研究目标需要不同的 AI 自由度——验证性研究要求精确执行，探索性研究需要 AI 灵活发挥。**这是用研老手凭经验做的事，我们把它参数化了。**
+Interviews are not free-form chats. Confirmatory research demands precision; exploratory research needs creative latitude. **We parameterized what seasoned researchers do by instinct.**
 
 <br>
 
 <div align="center">
 
 ```
-AI 自由度:   低 ◄━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━► 高
+AI freedom:   Low ◄━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━► High
 
-            🎯 精细控制          ⚖️ 平衡模式          🔍 粗放模式
-            验证性研究            大多数场景            探索性调研
+              Precise Control       Balanced Mode        Exploratory Mode
+              confirmatory          most projects        discovery
 ```
 
 </div>
 
 <br>
 
-|  | 🎯 精细控制 | ⚖️ 平衡模式 | 🔍 粗放模式 |
+|  | Precise Control | Balanced Mode | Exploratory Mode |
 |:--|:--:|:--:|:--:|
-| **适用场景** | 目标明确的验证性研究 | 大方向明确，适度发挥 | 探索性调研，发现未知 |
-| **关键信息点** | 每题标注 ✅ | 每题标注 ✅ | 不标注，AI 自主 |
-| **追问上限** | 4 回合/题 | 6 回合/题 | AI 自主判断 |
-| **最低覆盖** | 必问题 × 80% | 必问题 × 75% | 必问题 × 60% |
-| **典型场景** | NPS 回访、满意度验证 | JTBD 迁移、旅程归因 | 新品探索、品牌心智 |
+| **Use case** | Targeted validation | Clear direction, some flex | Open-ended discovery |
+| **Key-info markers** | Tagged per question | Tagged per question | None — AI decides |
+| **Probing limit** | 4 rounds / question | 6 rounds / question | AI discretion |
+| **Min coverage** | 80% of required Qs | 75% of required Qs | 60% of required Qs |
+| **Typical scenario** | NPS callback | JTBD migration | New-product exploration |
 
-> **为什么这很重要？** 传统用研中，访谈质量高度依赖访谈员的经验——何时深挖、何时跳过、何时接住话题展开。我们将这些隐性经验提炼为三个参数维度（信息点标注密度、追问回合上限、最低覆盖率），让你在项目启动前就能精确设定 AI 的行为边界。
+<sub>
 
-<br>
+**Why this matters** — In traditional research, interview quality depends heavily on the interviewer's tacit knowledge: when to drill down, when to skip, when to follow a thread. We distilled that experience into three parameter dimensions (info-point density, probing-round cap, minimum coverage), so you can precisely define the AI's behavioral boundaries before a project begins.
 
----
-
-<br>
-
-## 🏗 How It Works：Prompt 工程化架构
-
-<div align="center">
-  <img src="assets/architecture.svg" alt="Prompt 工程化架构" width="88%">
-</div>
-
-<br>
-
-<div align="center">
-  <strong>通用框架</strong>（怎么问）+ <strong>可插拔方法论</strong>（问什么）+ <strong>项目变量</strong>（问谁）→ 自动组装为完整 Prompt
-</div>
-
-<br>
-
-### SLOT 插槽机制
-
-<div align="center">
-  <img src="assets/slot-mechanism.svg" alt="SLOT 插槽组装原理" width="88%">
-</div>
-
-<br>
-
-> 新增方法论只需写 3 个 SLOT，不用改框架；框架升级自动惠及所有方法论。
+</sub>
 
 <br>
 
@@ -127,32 +106,62 @@ AI 自由度:   低 ◄━━━━━━━━━━━━━━━━━━━
 
 <br>
 
-## 📊 实验验证：从 50+ 次失败中迭代
+## How It Works — Prompt Engineering Architecture
 
-### 发现的问题
+<div align="center">
+  <img src="assets/architecture.svg" alt="Prompt engineering architecture" width="88%">
+</div>
+
+<br>
+
+<div align="center">
+  <strong>Universal framework</strong> (how to ask) + <strong>Pluggable methodology</strong> (what to ask) + <strong>Project variables</strong> (whom to ask) → auto-assembled into a full prompt
+</div>
+
+<br>
+
+### The SLOT Mechanism
+
+<div align="center">
+  <img src="assets/slot-mechanism.svg" alt="SLOT plug-in assembly" width="88%">
+</div>
+
+<br>
+
+> Add a new methodology by writing 3 SLOTs — no framework changes needed. Framework upgrades automatically benefit every methodology.
+
+<br>
+
+---
+
+<br>
+
+## Validation — What 50+ Failed Experiments Taught Us
+
+### Problems Discovered
 
 <table>
 <tr>
 <td width="50%">
 
-<div align="center"><strong>❌ 低智闲聊：问了废话，用户翻白眼</strong></div>
+<div align="center"><strong>Low-quality small-talk — users roll their eyes</strong></div>
 
 <br>
 
 <img src="assets/before-bad-question.png" width="100%">
 
-> 用户："不是火车票抢不抢都一样的...你问的是啥呀？"
+<sub>User: "Train-ticket scalping doesn't even matter… what are you asking?"</sub>
 
 </td>
 <td width="50%">
 
-<div align="center"><strong>❌ 节奏失调：一口气问太多，用户抓不住</strong></div>
+<div align="center"><strong>Broken pacing — too many questions at once</strong></div>
 
 <br>
 
 <img src="assets/before-bad-rhythm.png" width="100%">
 
-> AI 一段话问了 3 个问题，用户只回应了最后一个
+<sub>AI asked 3 questions in one turn; the user only answered the last one.</sub>
 
 </td>
 </tr>
@@ -160,54 +169,54 @@ AI 自由度:   低 ◄━━━━━━━━━━━━━━━━━━━
 
 <br>
 
-### 解决后的效果
+### After Optimization
 
 <table>
 <tr>
 <td width="50%">
 
-<div align="center"><strong>✅ 精准归纳：实时总结全程信息，零遗漏</strong></div>
+<div align="center"><strong>Precise summarization — real-time synthesis, zero leakage</strong></div>
 
 <br>
 
 <img src="assets/after-good-summary.png" width="100%">
 
-> AI 一口气回收散落全程的关键信息——订酒店渠道、决策因素、会员感知、期望权益——用户直接回复"对对对"
+<sub>AI consolidates scattered key info — booking channels, decision factors, membership perception, desired benefits — user responds "yes, exactly!"</sub>
 
 </td>
 <td width="50%">
 
-<div align="center"><strong>✅ 逐层下钻：从模糊表述追到具体场景</strong></div>
+<div align="center"><strong>Layer-by-layer drill-down — from vague complaints to concrete events</strong></div>
 
 <br>
 
 <img src="assets/after-good-deepdrill.png" width="100%">
 
-> 用户只说了句模糊抱怨，AI 三步追到具体城市→具体酒店→具体事件
+<sub>From one vague complaint, AI drills down in 3 steps: city → hotel → specific incident.</sub>
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-<div align="center"><strong>✅ 自然拓展：像真人一样顺着语境延伸</strong></div>
+<div align="center"><strong>Natural expansion — context-aware topic transitions</strong></div>
 
 <br>
 
 <img src="assets/after-good-expand.png" width="100%">
 
-> AI 顺着用户提到的订房经历，自然拓展到不同渠道的价差细节，对话过渡流畅不生硬
+<sub>AI naturally extends from hotel booking experience to cross-channel price comparisons — smooth and unforced.</sub>
 
 </td>
 <td width="50%">
 
-<div align="center"><strong>✅ 精准下钻：层层深入抓住重点</strong></div>
+<div align="center"><strong>Targeted probing — stays on point, layer after layer</strong></div>
 
 <br>
 
 <img src="assets/after-good-drill.png" width="100%">
 
-> AI 精准追问"两个渠道"的选择原因，层层深入到价格差异
+<sub>AI probes the reason behind "two channels," drilling into price differences step by step.</sub>
 
 </td>
 </tr>
@@ -215,52 +224,52 @@ AI 自由度:   低 ◄━━━━━━━━━━━━━━━━━━━
 
 <br>
 
-### 关键改进路径
+### Improvement Timeline
 
-| 版本 | 改进内容 | 追问到位率 |
+| Version | Change | Hit Rate |
 |:--:|:--|:--:|
-| v0.1 | 基础问题清单——问完就过，不追问 | **34%** |
-| v0.2 | + 关键信息点标注——AI 知道要挖什么了 | **61%** |
-| v0.3 | + 追问上限 + 三问必换题——节奏可控，不僵局 | **89%** |
-| v0.4 | + 方法论 SLOT 机制——方法论驱动深挖 | **94%** |
+| v0.1 | Flat question list — no probing at all | **34%** |
+| v0.2 | + Key-info markers — AI knows *what* to dig for | **61%** |
+| v0.3 | + Probing cap & 3-strike topic switch — pacing under control | **89%** |
+| v0.4 | + Methodology SLOT mechanism — methodology-driven depth | **94%** |
 
 <br>
 
 <details>
-<summary>&ensp;📋&ensp;<strong>完整测试方案：6 大压力场景</strong></summary>
+<summary>&ensp;<strong>Full test plan: 6 stress scenarios</strong></summary>
 
 <br>
 
-我们设计了 6 个极端场景来压力测试 Prompt：
+We designed 6 extreme scenarios to stress-test the prompt:
 
-| # | 测试场景 | 验证目标 |
+| # | Scenario | What It Tests |
 |:-:|:--|:--|
-| 1 | **唤醒与破壁** | 用户说"不记得"时，AI 能否温柔唤醒记忆？ |
-| 2 | **深度下钻与拒绝诱导** | AI 能否纯开放提问，不给选项、不诱导？ |
-| 3 | **事实矛盾与逻辑敏锐度** | 用户前后矛盾时，AI 能否发现并追问？ |
-| 4 | **高压效率与极端情绪** | 用户愤怒/抱怨时，AI 能否安抚并拉回？ |
-| 5 | **信息降噪与关键提取** | 用户说了一堆，AI 能否抓住关键信息？ |
-| 6 | **用户反问与身份稳定性** | 用户质疑"你是机器人吧"，AI 怎么应对？ |
+| 1 | **Memory activation** | Can AI gently help users recall when they say "I don't remember"? |
+| 2 | **Deep drill-down without leading** | Can AI ask purely open-ended questions — no options, no nudging? |
+| 3 | **Factual contradiction detection** | Can AI catch and probe when users contradict themselves? |
+| 4 | **High-pressure emotion handling** | Can AI de-escalate anger and steer back on track? |
+| 5 | **Signal extraction from noise** | Can AI identify key info when users ramble? |
+| 6 | **Identity stability under challenge** | How does AI respond when users ask "Are you a robot?" |
 
-**评估维度**：聊天节奏 · 问题挖掘深度 · 关键信息遗漏 · 异常挂断率 · 提示词鲁棒性
+**Evaluation dimensions:** pacing · probing depth · information leakage · abnormal hang-up rate · prompt robustness
 
 </details>
 
 <details>
-<summary>&ensp;📊&ensp;<strong>生产环境验证数据</strong></summary>
+<summary>&ensp;<strong>Production validation data</strong></summary>
 
 <br>
 
-以下数据来自 Prompt 在实际外呼平台的生产运行：
+Data from real outbound-call platforms:
 
-| 核心指标 | 传统人工（行业基准） | A 项目（测试） | B 项目（正式） | C 项目（正式） |
+| Metric | Traditional (Industry Baseline) | Project A (Test) | Project B (Production) | Project C (Production) |
 |:--|:--:|:--:|:--:|:--:|
-| 单次覆盖量 | 50-100 通/天 | **1267 通** | **202 通** | **1031 通** |
-| 接通率 | 30-40% | 47% | **61%** | 51% |
-| 有效访谈率 | 10-15% | 6% | **21%** | 7% |
-| 时间效率 | 1-2人 × 2-3天 | 2号码 × 4h | 2号码 × 30min | 2号码 × 3.5h |
+| Call volume | 50–100 / day | **1 267** | **202** | **1 031** |
+| Connect rate | 30–40% | 47% | **61%** | 51% |
+| Effective interview rate | 10–15% | 6% | **21%** | 7% |
+| Time cost | 1–2 people × 2–3 days | 2 lines × 4 h | 2 lines × 30 min | 2 lines × 3.5 h |
 
-> B 项目有效访谈率达到 **21%**，超过行业基准 10-15%。
+> Project B achieved a **21%** effective interview rate, exceeding the industry baseline of 10–15%.
 
 </details>
 
@@ -270,26 +279,26 @@ AI 自由度:   低 ◄━━━━━━━━━━━━━━━━━━━
 
 <br>
 
-## ⚡ 快速开始
+## ⚡ Quick Start
 
 ```bash
 git clone https://github.com/CyannSHI/ai-interview-kit.git
 cd ai-interview-kit
-# 用任意 AI 工具打开，说"生成 prompt"即可
+# Open with any supported AI tool and say "generate prompt"
 ```
 
 <br>
 
-| 技能 | 触发方式 | 功能 |
+| Skill | Trigger | What It Does |
 |:--|:--|:--|
-| `generate-prompt` | "生成 prompt"、"开始新项目" | 引导收集信息 → 推荐方法论 → 自动组装 Prompt |
-| `generate-input` | "准备输入变量" | 自然语言 → 结构化输入变量 |
-| `evaluate` | "评估通话" | 全量走查通话记录，检测 Bad Case |
+| `generate-prompt` | "generate prompt" / "new project" | Guided info collection → methodology recommendation → auto-assembled prompt |
+| `generate-input` | "prepare input variables" | Natural language → structured input variables |
+| `evaluate` | "evaluate calls" | Batch review of call transcripts; detects bad cases |
 
 <br>
 
 <div align="center">
-  <img src="assets/workflow.svg" alt="用户操作全流程" width="88%">
+  <img src="assets/workflow.svg" alt="End-to-end user workflow" width="88%">
 </div>
 
 <br>
@@ -298,22 +307,22 @@ cd ai-interview-kit
 
 <br>
 
-## 🔄 闭环：复盘 → 迭代
+## Feedback Loop — Review → Iterate
 
-外呼结束不是终点。把通话记录丢给 AI，它会告诉你**下次怎么做得更好**。
+The outbound campaign isn't the finish line. Feed call transcripts back to AI and it tells you **what to improve next time**.
 
 ```
-对 AI 说：  "评估这次外呼效果"  /  "复盘通话质量"  /  "检查 Bad Case"
+Say to AI:  "evaluate this campaign"  /  "review call quality"  /  "find bad cases"
 ```
 
-| 发现的问题 | 优化动作 |
+| Finding | Action |
 |:--|:--|
-| 追问到位率 60%，关键信息点标注不清晰 | 增加信息点描述，减少模糊表述 |
-| 用户频繁反问 AI 身份，开场白不够自然 | 调整身份设定，增加"用户研究员"背书 |
-| 某类问题总是收集不到，提问方式有问题 | 修改提问话术，增加场景引导 |
-| 追问 5 轮用户不耐烦，节奏太紧 | 降低追问上限，或切换平衡模式 |
+| Follow-up hit rate 60% — key-info markers unclear | Add detail to info-point descriptions; reduce vague wording |
+| Users keep asking "Are you a bot?" — opening feels unnatural | Adjust persona; add "user-researcher" framing |
+| Certain question types never get answered — phrasing issue | Rewrite prompts; add scenario-based lead-ins |
+| Users lose patience after 5 probes — pacing too tight | Lower probing cap or switch to Balanced mode |
 
-> **输出**：Excel 报告（每通评分 + 问题定位 + 具体改进建议）→ 直接用于优化下一轮 Prompt
+> **Output:** Excel report (per-call scoring + issue location + specific improvement suggestions) → feeds directly into the next prompt iteration.
 
 <br>
 
@@ -321,18 +330,18 @@ cd ai-interview-kit
 
 <br>
 
-## 📚 方法论库
+## Methodology Library
 
-| 方法论 | 适用场景 | 核心维度 |
+| Methodology | Use Cases | Core Dimensions |
 |:--|:--|:--|
-| **JTBD 需求迁移** | 用户决策 · 流失原因 · 竞品替换 | 推力 · 拉力 · 焦虑 · 习惯 · 去向 |
-| **用户旅程归因** | 体验流程 · 流程断点 · 操作链路 | 阶段 · 触点 · 行为 · 情绪 · 断点 |
-| **NPS / 满意度** | 满意度回访 · 服务改善 | 正向驱动 · 负向驱动 · 期望落差 |
-| **心智培育** | 深层动机 · 价值观挖掘 | 属性 · 功能利益 · 情感利益 · 核心价值观 |
-| **用户生命周期** | 转化 · 留存 · 流失 | 获取 · 转化 · 使用 · 留存 · 流失 |
-| **品牌诊断** | 品牌认知 · 竞品定位 | 认知 · 联想 · 偏好 · 对比 · 忠诚 |
+| **JTBD Migration** | User decisions · churn reasons · competitor switching | Push · Pull · Anxiety · Habit · Destination |
+| **Journey Mapping** | Experience flows · friction points · action chains | Stage · Touchpoint · Behavior · Emotion · Breakpoint |
+| **NPS / Satisfaction** | Satisfaction callback · service improvement | Positive driver · Negative driver · Expectation gap |
+| **Laddering** | Deep motivation · value discovery | Attribute · Functional benefit · Emotional benefit · Core value |
+| **User Lifecycle** | Conversion · retention · churn | Acquisition · Conversion · Usage · Retention · Churn |
+| **Brand Diagnostics** | Brand perception · competitive positioning | Awareness · Association · Preference · Comparison · Loyalty |
 
-> 想添加自定义方法论？复制 `methodologies/_template.md`，填写 3 个 SLOT，保存即可。
+<sub>Want to add a custom methodology? Copy <code>methodologies/_template.md</code>, fill in 3 SLOTs, and save.</sub>
 
 <br>
 
@@ -340,20 +349,20 @@ cd ai-interview-kit
 
 <br>
 
-## 🔌 兼容性
+## Compatibility
 
-技能指令使用**纯自然语言**编写，零 API 依赖，自动适配主流 AI 工具：
+All skill instructions are written in **plain natural language** — zero API dependencies, auto-compatible with major AI tools:
 
-| AI 工具 | 入口文件 |
+| AI Tool | Entry File |
 |:--|:--|
 | **Qoder** | `AGENTS.md` → `.qoder/skills/` |
 | **Claude Code** | `CLAUDE.md` |
 | **Cursor** | `.cursor/rules/ai-interview-skills.mdc` |
 | **GitHub Copilot** | `.github/copilot-instructions.md` |
 | **Windsurf** | `.windsurfrules` |
-| **其他** | `INSTRUCTIONS.md` |
+| **Others** | `INSTRUCTIONS.md` |
 
-> 所有入口文件最终指向 `skills/` 目录——**技能逻辑只有一份，零重复**。
+<sub>Every entry file points to the <code>skills/</code> directory — skill logic lives in one place, zero duplication.</sub>
 
 <br>
 
@@ -362,36 +371,36 @@ cd ai-interview-kit
 <br>
 
 <details>
-<summary>&ensp;📂&ensp;<strong>项目结构</strong></summary>
+<summary>&ensp;<strong>Project Structure</strong></summary>
 
 <br>
 
 ```
 .
-├── skills/                     # 技能指令（唯一真实来源）
-│   ├── generate-prompt.md      #   生成 Prompt
-│   ├── generate-input.md       #   生成输入变量
-│   └── evaluate.md             #   通话质量评估
+├── skills/                     # Skill instructions (single source of truth)
+│   ├── generate-prompt.md      #   Prompt generation
+│   ├── generate-input.md       #   Input variable generation
+│   └── evaluate.md             #   Call quality evaluation
 ├── framework/
-│   └── base.md                 # 通用访谈框架（含 SLOT 插槽）
-├── methodologies/              # 方法论库（可插拔）
-│   ├── jtbd.md                 #   JTBD 需求迁移
-│   ├── journey.md              #   用户旅程归因
-│   ├── nps.md                  #   NPS/满意度
-│   ├── laddering.md            #   心智培育
-│   ├── lifecycle.md            #   用户生命周期
-│   └── brand.md                #   品牌诊断
-├── examples/                   # 示例文件
-└── assets/                     # 图片资源
+│   └── base.md                 # Universal interview framework (with SLOT placeholders)
+├── methodologies/              # Methodology library (pluggable)
+│   ├── jtbd.md                 #   JTBD Migration
+│   ├── journey.md              #   Journey Mapping
+│   ├── nps.md                  #   NPS / Satisfaction
+│   ├── laddering.md            #   Laddering
+│   ├── lifecycle.md            #   User Lifecycle
+│   └── brand.md                #   Brand Diagnostics
+├── examples/                   # Example files
+└── assets/                     # Image assets
 ```
 
 </details>
 
 <br>
 
-## 🤝 贡献
+## Contributing
 
-欢迎 Issue 和 PR！尤其欢迎：贡献新的方法论模块、分享使用案例、改进框架的下钻逻辑。
+Issues and PRs are welcome — especially new methodology modules, usage case studies, and improvements to the probing logic.
 
 <br>
 
@@ -401,14 +410,15 @@ cd ai-interview-kit
 
 <br>
 
-**愿景：洞察平权**
+**Vision: Democratize Insight**
 
-让没有预算请专业用研公司的初创团队、公益组织，<br>
-也能低成本地"听见用户"，让产品设计真正回归"以人为本"。
+Let bootstrapped startups and nonprofits — teams that can't afford<br>
+a research agency — hear their users at low cost,<br>
+so product design truly returns to *human-centered*.
 
 <br>
 
-如果这个项目对你有帮助，请给个 ⭐ Star 支持一下
+If this project helps you, consider giving it a ⭐
 
 <br>
 

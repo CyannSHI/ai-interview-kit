@@ -2,6 +2,8 @@
 *.xlsx
 *.pdf
 *.png
+!assets/*.png
+!assets/*.gif
 ~$*
 prompt_*_*.txt
 输入变量_*.txt

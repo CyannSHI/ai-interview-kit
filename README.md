@@ -6,7 +6,7 @@
 
 <br>
 
-**34 → 94 %** follow-up hit rate &ensp;·&ensp; **50+** iteration rounds &ensp;·&ensp; **2 500+** production calls
+**34 → 94 %** follow-up hit rate &ensp;·&ensp; **50+** iteration rounds &ensp;·&ensp; **3 500+** production calls
 
 <br>
 
@@ -371,6 +371,16 @@ All skills are written in **plain natural language** — zero API dependencies, 
 </details>
 
 <br>
+
+## Changelog
+
+### v5.0 — Anti-leading, from human discipline to built-in mechanism
+Based on 1,000+ newly reviewed calls (3,500+ total), the pre-question self-check, internal-reference protection, and generation-time risk scan are now hard-wired into the framework. All 6 methodologies' "forbidden examples" expanded to cover 5 leading patterns. Closed/leading-question rate: 33% (strong prompt) vs 89–100% (un-patched).
+
+### v4.0 — Full kit, first public release
+Universal framework + 3 AI control modes + 6 methodologies + 3 skills. Follow-up hit rate 34% → 94%, validated on 2,500+ production calls.
+
+> Full history in Releases.
 
 ## Contributing
 

@@ -2,6 +2,7 @@
 name: ai-interview-kit
 description: "AI 用户研究外呼 Skill 套件——把研究员从'设计访谈提纲→生成外呼 Prompt→复盘通话质量'的全流程 Skill 化。三个子模式：(1) 生成结构化输入变量（generate-input），把研究目标拆解为目标用户/必问-深挖/关键信息点/最低覆盖等标准模板；(2) 生成完整定制化外呼 Prompt（generate-prompt），智能推荐 Laddering/SCQA/5Why/JTBD 等 8 套访谈方法论，自动组装框架+方法论+变量为可直接粘贴到 xbot 等外呼平台的 Prompt；(3) 全量走查通话记录（evaluate），Bad Case 检测+信息收集覆盖率核查，输出评估结果 Excel。当研究员需要启动新用研外呼项目、设计访谈提纲、生成 xbot Prompt、切换访谈方法论、复盘 AI 外呼通话质量、检测通话 Bad Case 时使用。已在飞猪千问 AI 预订旅行产品体验调研、国际机票流失原因调研等真实项目多轮迭代验证。"
 author:
+  empId: "437177"
   nickname: "弈卿"
 ---
 
